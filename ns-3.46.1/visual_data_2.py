@@ -9,7 +9,7 @@ import warnings
 # Suppress minor future warnings from seaborn for cleaner terminal output
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
+def visualize_large_ns3_trace(csv_source, num_time_bins=200):
     try:
         df = pd.read_csv(csv_source)
     except Exception as e:
@@ -27,26 +27,16 @@ def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
     bin_size = max(max_time / num_time_bins, 0.5) 
     df['TimeBin'] = (df['Time_s'] // bin_size) * bin_size
 
-    # Parse filename for title (format: run_scenario_areadistm.csv)
-    scenario_label = "Unknown"
-    area_label = "Unknown"
-    
-    if "run_" in file_name:
-        parts = file_name.replace(".csv", "").split("_")
-        if len(parts) >= 3:
-            scenario_label = parts[1].capitalize()
-            area_label = parts[2].replace("area", "")
-            
     sns.set_theme(style="whitegrid", context="paper")
     
-    fig = plt.figure(figsize=(16, 22))
-    fig.suptitle(f"Matrix Run Analysis | Scenario: {scenario_label} | Distance: {area_label}", fontsize=20, fontweight='bold')
+    fig = plt.figure(figsize=(18, 14))
+    fig.suptitle(f"Network Bottleneck Analysis: {file_name}", fontsize=18, fontweight='bold')
     
-    gs = fig.add_gridspec(4, 1, height_ratios=[1.2, 1.2, 1.0, 1.0])
-    ax_timeline = fig.add_subplot(gs[0, 0])
-    ax_heatmap  = fig.add_subplot(gs[1, 0])
+    gs = fig.add_gridspec(3, 2, height_ratios=[1.5, 1.5, 1.2])
+    ax_timeline = fig.add_subplot(gs[0, :])
+    ax_heatmap  = fig.add_subplot(gs[1, :])
     ax_drop_time = fig.add_subplot(gs[2, 0]) 
-    ax_drop_dist = fig.add_subplot(gs[3, 0])
+    ax_drop_dist = fig.add_subplot(gs[2, 1])
 
     action_palette = {
         "RECV": "#2ecc71", "SEND": "#3498db", "WIFI_DROP": "#c0392b", "JOINED": "#9b59b6"
@@ -159,32 +149,22 @@ def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
     fig.canvas.draw()
     ax_drop_dist.set_xticklabels([f"{int(float(x.get_text()))}s" for x in ax_drop_dist.get_xticklabels()])
 
-    plt.tight_layout(rect=[0, 0.03, 1, 0.97])
-    
-    if save_path:
-        os.makedirs(save_path, exist_ok=True)
-        img_name = file_name.replace(".csv", ".png")
-        full_save_path = os.path.join(save_path, img_name)
-        plt.savefig(full_save_path, dpi=120)
-        print(f"  --> Dashboard saved to: {full_save_path}")
+    plt.tight_layout(rect=[0, 0.03, 1, 0.96])
 
 # --- Execution ---
 if __name__ == "__main__":
-    target_folder = "results/diploma_matrix_runs"
-    visuals_folder = "results/visuals"
-    csv_files = glob.glob(os.path.join(target_folder, "run_*.csv"))
+    target_folder = "."
+    csv_files = glob.glob(os.path.join(target_folder, "*Events*.csv"))
     
     if not csv_files:
         print(f"No matching CSV files found in '{target_folder}'")
     else:
-        print(f"Found {len(csv_files)} research files. Generating vertical dashboards...")
+        print(f"Found {len(csv_files)} simulation files. Generating updated dashboards...")
         csv_files.sort()
         
         for file_path in csv_files:
-            print(f"Processing: {file_path}")
-            # Run sequentially to avoid OOM or window clutter
-            visualize_large_ns3_trace(file_path, save_path=visuals_folder)
+            print(f"Preparing window for: {file_path}")
+            visualize_large_ns3_trace(file_path)
             
-        print(f"\nSimulation analysis complete. All visuals available in {visuals_folder}/")
-        # Optional: uncomment to see windows
-        # plt.show()
+        print("Done generating. Opening all windows now!")
+        plt.show()
