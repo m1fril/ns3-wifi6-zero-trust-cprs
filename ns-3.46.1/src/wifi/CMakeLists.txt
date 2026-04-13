@@ -362,7 +362,6 @@ set(header_files
     model/yans-wifi-channel.h
     model/yans-wifi-phy.h
     model/wifi-spectrum-value-helper.h
-    test/wifi-mlo-test.h
 )
 
 build_lib(

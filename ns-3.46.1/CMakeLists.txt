@@ -184,7 +184,6 @@ process_options()
 add_subdirectory(src)
 
 # Build NS library examples
-add_subdirectory(examples)
 
 # Build scratch/simulation scripts
 add_subdirectory(scratch)

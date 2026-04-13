@@ -1,0 +1,27 @@
+# ns-3 build artifacts
+build/
+cmake-cache/
+.lock-ns-3*
+build-support/
+doc/
+
+# Simulation output data
+*.csv
+*.json
+*.plt
+out.txt
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Python environment
+.venv/
+__pycache__/
+
+# Scratch files
+scratch/CMakeFiles/
+scratch/Makefile
+scratch/cmake_install.cmake
