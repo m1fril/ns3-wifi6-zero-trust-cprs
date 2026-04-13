@@ -1,0 +1,32 @@
+#! /usr/bin/env python3
+
+launch_dir = '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1'
+run_dir = '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1'
+top_dir = '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1'
+out_dir = '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build'
+
+
+NS3_ENABLED_MODULES = ['ns3-zigbee', 'ns3-wifi', 'ns3-virtual-net-device', 'ns3-uan', 'ns3-traffic-control', 'ns3-topology-read', 'ns3-stats', 'ns3-spectrum', 'ns3-sixlowpan', 'ns3-propagation', 'ns3-point-to-point-layout', 'ns3-point-to-point', 'ns3-olsr', 'ns3-nix-vector-routing', 'ns3-network', 'ns3-netanim', 'ns3-mobility', 'ns3-mesh', 'ns3-lte', 'ns3-lr-wpan', 'ns3-internet-apps', 'ns3-internet', 'ns3-flow-monitor', 'ns3-energy', 'ns3-dsr', 'ns3-dsdv', 'ns3-csma-layout', 'ns3-csma', 'ns3-core', 'ns3-config-store', 'ns3-buildings', 'ns3-bridge', 'ns3-applications', 'ns3-aodv', 'ns3-antenna', ]
+NS3_ENABLED_CONTRIBUTED_MODULES = ['ns3-wimax', 'ns3-wban', 'ns3-vr-app', 'ns3-uart-net-device', 'ns3-sip', 'ns3-oran', 'ns3-nr', 'ns3-netsimulyzer', 'ns3-lorawan', 'ns3-first-order-buildings-aware-path-loss', 'ns3-aqm-eval-suite', ]
+NS3_MODULE_PATH = ['/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/.venv/bin', '/Users/mykhail/.antigravity/antigravity/bin', '/Users/mykhail/Downloads/google-cloud-sdk/bin', '/Users/mykhail/.gem/ruby/3.4.0/bin', '/opt/homebrew/opt/ruby/bin', '/Users/mykhail/.rd/bin', '/Users/mykhail/.nvm/versions/node/v16.16.0/bin', '/opt/homebrew/opt/openjdk/bin', '/opt/homebrew/opt/libpq/bin', '/usr/local/opt/libpq/bin', '/opt/homebrew/bin', '/opt/homebrew/bin', '/opt/homebrew/sbin', '/usr/local/bin', '/System/Cryptexes/App/usr/bin', '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin', '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin', '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin', '/opt/pmk/env/global/bin', '/Library/Apple/usr/bin', '/usr/local/go/bin', '/Users/mykhail/.antigravity/antigravity/bin', '/Users/mykhail/Downloads/google-cloud-sdk/bin', '/Users/mykhail/.gem/ruby/3.4.0/bin', '/opt/homebrew/opt/ruby/bin', '/Users/mykhail/.rd/bin', '/Users/mykhail/.nvm/versions/node/v16.16.0/bin', '/opt/homebrew/opt/openjdk/bin', '/opt/homebrew/opt/libpq/bin', '/usr/local/opt/libpq/bin', '/Users/mykhail/.cargo/bin', '/Users/mykhail/.local/bin', '/Users/mykhail/.local/bin', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/lib']
+ENABLE_EXAMPLES = False
+ENABLE_TESTS = False
+ENABLE_OPENFLOW = False
+NSCLICK = False
+ENABLE_BRITE = False
+ENABLE_SUDO = False
+ENABLE_PYTHON_BINDINGS = False
+FETCH_NETANIM_VISUALIZER = False
+EXAMPLE_DIRECTORIES = []
+APPNAME = 'ns'
+BUILD_PROFILE = 'optimized'
+VERSION = '3.46.1' 
+BUILD_VERSION_STRING = '' 
+PYTHON = ['/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/.venv/bin/python3.12']
+VALGRIND_FOUND = False 
+
+
+ns3_runnable_programs = ['/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/utils/perf/ns3.46.1-perf-io-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/utils/ns3.46.1-print-introspected-doxygen-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/utils/ns3.46.1-bench-packets-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/utils/ns3.46.1-bench-scheduler-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/scratch/subdir/ns3.46.1-scratch-subdir-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/scratch/nested-subdir/ns3.46.1-scratch-nested-subdir-executable-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/scratch/ns3.46.1-wifi-bianchi-netsimulyzer-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/scratch/ns3.46.1-scratch-simulator-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/contrib/nr/ns3.46.1-nr-print-introspected-doxygen-optimized', '/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/cmake-cache/ns3.46.1-stdlib_pch_exec-optimized', ]
+
+ns3_runnable_scripts = []
+

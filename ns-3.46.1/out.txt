@@ -1,0 +1,27 @@
+[0/2] Re-checking globbed directories...
+[1/3] Building CXX object contrib/netsimulyzer/examples/CMakeFiles/wifi-bianchi-netsimulyzer.dir/wifi-bianchi-netsimulyzer.cc.o
+FAILED: [code=1] contrib/netsimulyzer/examples/CMakeFiles/wifi-bianchi-netsimulyzer.dir/wifi-bianchi-netsimulyzer.cc.o 
+/opt/homebrew/bin/ccache /usr/bin/c++ -DHAS_NETSIMULYZER -DHAVE_BOOST -DHAVE_BOOST_UNITS -DHAVE_GSL -DHAVE_LIBXML2 -DHAVE_SQLITE3 -DNEED_AND_HAVE_BOOST_BESSEL_FUNC -DNETSIMULYZER_NS3_VERSION=46 -DNETSIMULYZER_NS3_VERSION_MINOR=1 -DNS3_ASSERT_ENABLE -DNS3_BUILD_PROFILE_DEBUG -DNS3_LOG_ENABLE -DPROJECT_SOURCE_PATH=\"/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1\" -D__APPLE__ -I/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2 -I/opt/homebrew/include -stdlib=libc++ -O2 -g -DNDEBUG -std=c++2b -arch arm64 -fPIE   -fcolor-diagnostics -Xclang -fno-pch-timestamp -Wall -Wpedantic -Winvalid-pch -Xclang -include-pch -Xclang /Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/cmake-cache/CMakeFiles/stdlib_pch_exec.dir/cmake_pch.hxx.pch -Xclang -include -Xclang /Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/cmake-cache/CMakeFiles/stdlib_pch_exec.dir/cmake_pch.hxx -MD -MT contrib/netsimulyzer/examples/CMakeFiles/wifi-bianchi-netsimulyzer.dir/wifi-bianchi-netsimulyzer.cc.o -MF contrib/netsimulyzer/examples/CMakeFiles/wifi-bianchi-netsimulyzer.dir/wifi-bianchi-netsimulyzer.cc.o.d -o contrib/netsimulyzer/examples/CMakeFiles/wifi-bianchi-netsimulyzer.dir/wifi-bianchi-netsimulyzer.cc.o -c /Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:495:24: error: use of undeclared identifier 'wifi'
+  495 |         experiment.Run(wifi, wifiPhy, wifiMac, wifiChannel, 0, n, nAps,
+      |                        ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:495:30: error: use of undeclared identifier 'wifiPhy'
+  495 |         experiment.Run(wifi, wifiPhy, wifiMac, wifiChannel, 0, n, nAps,
+      |                              ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:495:39: error: use of undeclared identifier 'wifiMac'
+  495 |         experiment.Run(wifi, wifiPhy, wifiMac, wifiChannel, 0, n, nAps,
+      |                                       ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:495:48: error: use of undeclared identifier 'wifiChannel'
+  495 |         experiment.Run(wifi, wifiPhy, wifiMac, wifiChannel, 0, n, nAps,
+      |                                                ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:497:24: error: use of undeclared identifier 'distance'
+  497 |                        distance, apTxPower, staTxPower, pktInterval,
+      |                        ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:497:34: error: use of undeclared identifier 'apTxPower'
+  497 |                        distance, apTxPower, staTxPower, pktInterval,
+      |                                  ^
+/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/contrib/netsimulyzer/examples/wifi-bianchi-netsimulyzer.cc:497:45: error: use of undeclared identifier 'staTxPower'
+  497 |                        distance, apTxPower, staTxPower, pktInterval,
+      |                                             ^
+7 errors generated.
+ninja: build stopped: subcommand failed.

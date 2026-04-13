@@ -1,0 +1,13 @@
+exec_prefix="/usr/local/bin"
+libdir="/usr/local/lib"
+includedir="/usr/local/include"
+
+Name: ns3-nr
+Description: 
+URL: 
+Version: 3.46.1
+Requires:  ns3-internet-apps ns3-flow-monitor ns3-spectrum ns3-buildings ns3-virtual-net-device ns3-point-to-point ns3-applications ns3-csma ns3-config-store
+Requires.private: 
+Cflags: -I"${includedir}"  -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libxml2 -I/opt/homebrew/include
+Libs: -L"${libdir}" -lns3.46.1-nr-optimized  -lns3.46.1-internet-apps-optimized -lns3.46.1-flow-monitor-optimized -lns3.46.1-spectrum-optimized -lns3.46.1-buildings-optimized -lns3.46.1-virtual-net-device-optimized -lns3.46.1-point-to-point-optimized -lns3.46.1-applications-optimized -lns3.46.1-csma-optimized -lns3.46.1-config-store-optimized
+Libs.private: -L"${libdir}" 
