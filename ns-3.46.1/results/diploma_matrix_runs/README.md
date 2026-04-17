@@ -27,14 +27,10 @@ This formula provides a deterministic guideline for capacity planning based on p
 
 ## 3. Empirical Observations & System Dynamics
 
-### 3.1. The "Pre-Storm" Latency Spike (Predictive Telemetry)
-The most critical finding from the `NETWORK_FAILURE` scenarios is the identification of a predictive signature prior to total packet loss. 
-
 As the `ChaosAgent` injected load parameters or as APs began to fail, the system exhibited a distinct state change. Approximately 2.0 to 3.0 seconds before systemic Wi-Fi MAC drop events occurred, average round-trip latency increased exponentially. This occurs because the hardware queues approach their capacity limit ($Q \to Q_{max}$).
 
-Let $L(t)$ be the latency at time $t$. The threshold condition for impending collapse can be defined as:
-$$\frac{d L(t)}{dt} > \delta_{critical}$$
-Where $\delta_{critical}$ represents the rapid inflection point in queue saturation. This proves that real-time observability pipelines (e.g., Datadog, New Relic) can utilize the first derivative of latency as an early-warning trigger for automated remediation algorithms before hard packet loss impacts the application layer.
+**Distance Impact on Prediction:** 
+In "Near-Field" (25m-75m), the prediction window is stable. However, in "Far-Field" (200m-400m), the SNR margin is so low that any failure (Chaos injection) leads to **immediate collapse** without a readable latency ramp-up, reducing the efficacy of proactive remediation.
 
 ### 3.2. Contention Collapse at High Density
 The data strictly enforces an upper bound on client density. When the number of STAs ($N$) exceeds $40$, the network throughput collapses regardless of proximity to the AP. 
@@ -45,6 +41,9 @@ This aligns with Bianchi's analytical model for 802.11 networks. As $N$ increase
 The `CONTROLLED_LOAD` runs validated the system's robustness against continuous, wave-based spatial changes. The environment smoothly handled STAs following a sine-wave velocity mathematical model:
 $$S(t) = S_{base} + A \cdot \sin(2 \pi f t)$$
 Even at the peaks of spatial dispersion, the underlying ns-3 physical layer successfully downgraded and upgraded MCS data rates seamlessly, avoiding dropped packets and validating the fidelity of the agent-driven simulation orchestrator.
+
+**Distance Impact on Mobility:**
+At distances > 200m, the sinusoidal movement frequently pushes the STA beyond the effective sensitivity threshold of the AP. This results in **cyclic throughput blackouts** where connectivity is lost at the sine-wave peaks and recovered in the troughs, creating a "flickering" network state that is difficult for higher-level protocols (TCP) to handle without window collapse.
 
 ## 4. Architectural Recommendations
 
@@ -67,7 +66,8 @@ Based on the integration of the spatial-capacity formula and the observed MAC co
 | File | Scenario | Room Size | Result Status |
 | :--- | :--- | :--- | :--- |
 | `run_normal_area25.0m.csv` | Normal | 25.0m | Baseline OK |
-| `run_normal_area200.0m.csv` | Normal | 200.0m | High Jitter / Drop |
+| `run_controlled_area200.0m.csv` | Controlled | 200.0m | Cyclic Drop OK |
+| `run_failure_area200.0m.csv` | Failure | 200.0m | Rapid Collapse |
 | `run_normal_area400.0m.csv` | Normal | 400.0m | Total Collapse |
 | `run_failure_area400.0m.csv` | Failure | 400.0m | Critical Failure |
 
