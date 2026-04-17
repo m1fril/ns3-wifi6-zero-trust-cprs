@@ -3,7 +3,26 @@
 ## 1. Abstract
 This report presents the findings of an expanded execution matrix (up to 400m) simulating 802.11a network environments using the ns-3 discrete-event simulator. Orchestrated by an autonomous multi-agent C++ framework, the environment was subjected to varying spatial dimensions (25m to 400m) and dynamic state perturbations (Normal, Controlled Load, Failure). The primary objective was to quantify the degradation of network capacity across distance and node density, and to identify leading telemetry indicators of network collapse.
 
-## 2. Mathematical Modeling of Network Capacity
+## 2. Experimental Methodology & System States
+
+The simulation utilizes a modular C++ orchestration layer integrated with **ns-3.46.1**. The architecture employs a multi-agent system to perturb the network environment across three distinct operational states:
+
+### 2.1. Normal State (Baseline)
+*   **Objective:** Establish "ideal" performance metrics for spatial comparison.
+*   **Dynamics:** 1 AP, variable STAs (1-50), static positioning, and low-intensity Constant Bit Rate (CBR) traffic.
+*   **Telemetry Expectation:** High Signal-to-Noise Ratio (SNR), maximum MCS indices, and sub-10ms latencies.
+
+### 2.2. Controlled Load State (Dynamic Adaptation)
+*   **Objective:** Evaluate the system's ability to maintain Quality of Service (QoS) under variable spatial and traffic parameters.
+*   **Dynamics:** Controlled by the `DirectorAgent`. Introduces sinusoidal mobility patterns and fluctuating traffic loads based on a temporal timeline.
+*   **Telemetry Expectation:** Periodic variations in jitter and throughput; system should successfully down-speed MCS rates to maintain connectivity.
+
+### 2.3. Failure Scenario (Stress Test)
+*   **Objective:** Identify the tipping point of systemic collapse and test predictive remediation.
+*   **Dynamics:** Controlled by the `ChaosAgent`. Injects discrete failure events including artificial packet drops, high-intensity interference bursts, and link-layer disconnects.
+*   **Telemetry Expectation:** Rapid increase in queue size ($Q$), exponential latency spikes, and eventual total packet loss in the "Far-Field" (200m+).
+
+## 3. Mathematical Modeling of Network Capacity
 
 Based on the simulation outputs, we can observe a non-linear inverse relationship between the physical area size and the maximum sustainable number of Stations ($N_{max}$) per Access Point before Carrier-Sense Multiple Access with Collision Avoidance (CSMA/CA) overhead causes exponential throughput degradation.
 
@@ -25,19 +44,20 @@ Where:
 
 This formula provides a deterministic guideline for capacity planning based on physical topography.
 
-## 3. Empirical Observations & System Dynamics
+## 4. Empirical Observations & System Dynamics
 
+### 4.1. The "Pre-Storm" Latency Spike (Predictive Telemetry)
 As the `ChaosAgent` injected load parameters or as APs began to fail, the system exhibited a distinct state change. Approximately 2.0 to 3.0 seconds before systemic Wi-Fi MAC drop events occurred, average round-trip latency increased exponentially. This occurs because the hardware queues approach their capacity limit ($Q \to Q_{max}$).
 
 **Distance Impact on Prediction:** 
 In "Near-Field" (25m-75m), the prediction window is stable. However, in "Far-Field" (200m-400m), the SNR margin is so low that any failure (Chaos injection) leads to **immediate collapse** without a readable latency ramp-up, reducing the efficacy of proactive remediation.
 
-### 3.2. Contention Collapse at High Density
+### 4.2. Contention Collapse at High Density
 The data strictly enforces an upper bound on client density. When the number of STAs ($N$) exceeds $40$, the network throughput collapses regardless of proximity to the AP. 
 
 This aligns with Bianchi's analytical model for 802.11 networks. As $N$ increases, the probability $p$ of a collision occurring when a station transmits in a randomly chosen slot increases sharply. The time spent in exponential backoff outpaces the time spent transmitting useful payload, resulting in a state of "contention collapse."
 
-### 3.3. Resilience to Sinusoidal Mobility
+### 4.3. Resilience to Sinusoidal Mobility
 The `CONTROLLED_LOAD` runs validated the system's robustness against continuous, wave-based spatial changes. The environment smoothly handled STAs following a sine-wave velocity mathematical model:
 $$S(t) = S_{base} + A \cdot \sin(2 \pi f t)$$
 Even at the peaks of spatial dispersion, the underlying ns-3 physical layer successfully downgraded and upgraded MCS data rates seamlessly, avoiding dropped packets and validating the fidelity of the agent-driven simulation orchestrator.
@@ -45,7 +65,7 @@ Even at the peaks of spatial dispersion, the underlying ns-3 physical layer succ
 **Distance Impact on Mobility:**
 At distances > 200m, the sinusoidal movement frequently pushes the STA beyond the effective sensitivity threshold of the AP. This results in **cyclic throughput blackouts** where connectivity is lost at the sine-wave peaks and recovered in the troughs, creating a "flickering" network state that is difficult for higher-level protocols (TCP) to handle without window collapse.
 
-## 4. Architectural Recommendations
+## 5. Architectural Recommendations
 
 Based on the integration of the spatial-capacity formula and the observed MAC contention limits, the following deployment guidelines are established:
 
@@ -61,7 +81,7 @@ Based on the integration of the spatial-capacity formula and the observed MAC co
 
 ---
 
-## 5. Raw Data Inventory
+## 6. Raw Data Inventory
 
 | File | Scenario | Room Size | Result Status |
 | :--- | :--- | :--- | :--- |
