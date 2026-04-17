@@ -251,7 +251,7 @@ int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize
         uint32_t count = macStasPerAp + (i < (nStas % nAps) ? 1 : 0);
         NodeContainer currentApStas;
         for (uint32_t j = 0; j < count; j++) currentApStas.Add(m_staNodes.Get(staMobilityCounter++));
-        double radius = 75.0;
+        double radius = spacing / 2.0;
         double minX = std::max(0.0, apPos.x - radius); double maxX = std::min(roomSize, apPos.x + radius);
         double minY = std::max(0.0, apPos.y - radius); double maxY = std::min(roomSize, apPos.y + radius);
         MobilityHelper staMobility;

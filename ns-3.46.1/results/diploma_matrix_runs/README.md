@@ -1,7 +1,7 @@
 # Empirical Analysis of Multi-Agent Orchestrated Wi-Fi Networks: Spatial Contention and Failure Prediction
 
 ## 1. Abstract
-This report presents the findings of a 3x3 execution matrix simulating 802.11a network environments using the ns-3 discrete-event simulator. Orchestrated by an autonomous multi-agent C++ framework, the environment was subjected to varying spatial dimensions (25m, 75m, 150m) and dynamic state perturbations (Normal, Controlled Load, Failure). The primary objective was to quantify the degradation of network capacity across distance and node density, and to identify leading telemetry indicators of network collapse.
+This report presents the findings of an expanded execution matrix (up to 400m) simulating 802.11a network environments using the ns-3 discrete-event simulator. Orchestrated by an autonomous multi-agent C++ framework, the environment was subjected to varying spatial dimensions (25m to 400m) and dynamic state perturbations (Normal, Controlled Load, Failure). The primary objective was to quantify the degradation of network capacity across distance and node density, and to identify leading telemetry indicators of network collapse.
 
 ## 2. Mathematical Modeling of Network Capacity
 
@@ -20,6 +20,8 @@ Where:
 * For $d = 25$m: $N_{max}(25) = \lfloor 40 \cdot e^{0} \rfloor = 40$ STAs
 * For $d = 75$m: $N_{max}(75) = \lfloor 40 \cdot e^{-0.5} \rfloor = 24$ STAs
 * For $d = 150$m: $N_{max}(150) = \lfloor 40 \cdot e^{-1.25} \rfloor = 11$ STAs
+* For $d = 200$m: $N_{max}(200) = \lfloor 40 \cdot e^{-1.75} \rfloor = 6$ STAs (Signal Degradation Observed)
+* For $d = 400$m: $N_{max}(400) = \lfloor 40 \cdot e^{-3.75} \rfloor \approx 0$ STAs (Critical Failure Point)
 
 This formula provides a deterministic guideline for capacity planning based on physical topography.
 
@@ -65,7 +67,8 @@ Based on the integration of the spatial-capacity formula and the observed MAC co
 | File | Scenario | Room Size | Result Status |
 | :--- | :--- | :--- | :--- |
 | `run_normal_area25.0m.csv` | Normal | 25.0m | Baseline OK |
-| `run_controlled_area75.0m.csv` | Controlled | 75.0m | Adaptive OK |
-| `run_failure_area150.0m.csv` | Failure | 150.0m | Collapse |
+| `run_normal_area200.0m.csv` | Normal | 200.0m | High Jitter / Drop |
+| `run_normal_area400.0m.csv` | Normal | 400.0m | Total Collapse |
+| `run_failure_area400.0m.csv` | Failure | 400.0m | Critical Failure |
 
 *For visual analysis, see the corresponding PNG dashboards in `../visuals/`.*
