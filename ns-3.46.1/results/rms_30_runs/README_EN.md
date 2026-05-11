@@ -10,27 +10,29 @@ The simulation was conducted using **ns-3.46.1** with the following parameters:
 *   **Access Point (AP):** 1 AP, centrally located.
 *   **Traffic:** CBR (Constant Bit Rate), 500ms packet interval.
 *   **Iterations:** 30 independent runs with unique `RngRun` values.
-*   **Duration:** 10 seconds of simulation time per run.
+*   **Duration:** 200 seconds of simulation time per run.
 
 ## 3. Statistical Analysis & RMS
 The following aggregated metrics were derived from the 30 runs:
 
 ### 3.1. Throughput (Mbps)
-*   **Mean:** 0.2380 Mbps
-*   **Root Mean Square (RMS):** **0.2407 Mbps**
-*   **Standard Deviation (Std):** 0.0361 Mbps
-*   **Range (Min/Max):** 0.1208 - 0.3389 Mbps
+*   **Mean:** 0.0285 Mbps
+*   **Root Mean Square (RMS):** **0.0296 Mbps**
+*   **Standard Deviation (Std):** 0.0081 Mbps
 
 ### 3.2. Latency (ms)
-*   **Mean:** 11.4576 ms
-*   **Root Mean Square (RMS):** **15.1003 ms**
-*   **Standard Deviation (Std):** 9.8358 ms
-*   **Range (Min/Max):** 1.0 - 51.0 ms
+*   **Mean:** 6.9762 ms
+*   **Root Mean Square (RMS):** **7.9945 ms**
+*   **Standard Deviation (Std):** 3.9045 ms
+
+### 3.3. Packet Loss (%)
+*   **Mean:** 0.0031 %
+*   **Standard Deviation (Std):** 0.0055 %
 
 ## 4. Empirical Observations
-1.  **Throughput Stability:** Despite being in a normal state, there is noticeable throughput variability (Std ~15% of mean). This is caused by the CSMA/CA mechanism and random collisions even under low load.
-2.  **Latency Dispersion:** The high standard deviation of latency (9.84 ms) relative to the mean (11.46 ms) indicates jitter and periodic latency spikes, typical for competitive medium access.
-3.  **RMS as a Performance Indicator:** The RMS value for throughput (0.2407) is close to the mean, confirming the absence of critical anomalies in normal operation mode.
+1.  **Throughput Stability:** Despite being in a normal state, there is noticeable throughput variability (Std ~28% of mean). This is caused by the CSMA/CA mechanism and random collisions even under low load.
+2.  **Latency Dispersion:** The high standard deviation of latency (3.90 ms) relative to the mean (6.97 ms) indicates jitter and periodic latency spikes, typical for competitive medium access.
+3.  **Baseline Loss & Ideal Configuration:** The extremely low baseline packet loss (0.0031%) confirms that in a small area (25x25m), the physical layer drop rate is negligible, highlighting that pure CSMA/CA contention collapse occurs only when SNR degradation is introduced (e.g. 100x100m room size).
 
 ## 5. High-Resolution Visualization Findings
 Initial macro-level visualizations (using 0.5s time bins) suggested perfectly identical behavior across all 30 runs because the Constant Bit Rate (CBR) traffic generated exactly 1 packet per 500ms per station. 
@@ -39,11 +41,11 @@ However, by increasing the visualization resolution to **0.05-second time bins**
 
 **Visual Evidence of Jitter & CSMA/CA Backoff:**
 The following randomly sampled runs demonstrate unique timeline profiles, confirming that the random seeds (`RngRun`) successfully induced distinct network states via random backoff timers and collision resolution:
-*   [View Visual Analysis: Run 3](../../visuals/rms_random/run_3.png)
 *   [View Visual Analysis: Run 4](../../visuals/rms_random/run_4.png)
-*   [View Visual Analysis: Run 22](../../visuals/rms_random/run_22.png)
-*   [View Visual Analysis: Run 25](../../visuals/rms_random/run_25.png)
-*   [View Visual Analysis: Run 27](../../visuals/rms_random/run_27.png)
+*   [View Visual Analysis: Run 6](../../visuals/rms_random/run_6.png)
+*   [View Visual Analysis: Run 7](../../visuals/rms_random/run_7.png)
+*   [View Visual Analysis: Run 12](../../visuals/rms_random/run_12.png)
+*   [View Visual Analysis: Run 24](../../visuals/rms_random/run_24.png)
 
 ## 6. Conclusions
 The results establish a statistical "gold standard" for this network configuration. The **RMS Latency of 15.10 ms** and **RMS Throughput of 0.24 Mbps** will serve as baselines for detecting anomalies in `Controlled Load` and `Failure` scenarios. The high-resolution analysis further validates that the simulation accurately models realistic MAC-layer contention and random micro-jitter.

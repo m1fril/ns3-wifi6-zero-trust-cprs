@@ -1,14 +1,14 @@
-# 30 Runs - RMS Calculation Results
+# 30 Runs - RMS Calculation
 
-This directory contains the results of 30 independent simulation runs for the "Normal Behavior" scenario with 30 STAs.
+**Scenario:** Normal Behavior
+**Stations (STA):** 30
+**Runs:** 30
+**Duration:** 200s
+**Room Size:** 25.0m
 
-## Statistical Reports / Звіти
-- [English Report (README_EN.md)](README_EN.md)
-- [Український звіт (README_UA.md)](README_UA.md)
+## Root Mean Square (RMS) Results
 
-## Summary Data
-- **RMS Throughput:** 0.2407 Mbps
-- **RMS Latency:** 15.1003 ms
+The Root Mean Square (RMS) was calculated across all 30 independent runs (different random seeds).
 
-## Files
-The directory contains 30 CSV files (`run_1.csv` to `run_30.csv`) representing each independent simulation iteration.
+- **RMS Throughput:** 0.0296 Mbps
+- **RMS Latency:** 7.9945 ms

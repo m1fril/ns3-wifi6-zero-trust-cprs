@@ -9,7 +9,7 @@ os.makedirs(out_dir, exist_ok=True)
 runs = 30
 n_aps = 1
 n_stas = 30
-duration = 10
+duration = 200
 room_size = 25.0
 
 all_throughputs = []

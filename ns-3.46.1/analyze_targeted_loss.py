@@ -28,7 +28,7 @@ def analyze_file(filename):
                 
                 if t < 1.0: continue
                 
-                phase = 'pre' if t < 20.0 else 'post'
+                phase = 'pre' if t < 100.0 else 'post'
                 key = ''
                 if node == s1_node: key = 's1'
                 elif node == s2_node: key = 's2'

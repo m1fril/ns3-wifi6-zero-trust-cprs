@@ -9,7 +9,7 @@ import warnings
 # Suppress minor future warnings from seaborn for cleaner terminal output
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
+def visualize_large_ns3_trace(csv_source, num_time_bins=2000, save_path=None):
     try:
         df = pd.read_csv(csv_source)
     except Exception as e:
@@ -27,20 +27,28 @@ def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
     bin_size = max(max_time / num_time_bins, 0.05) # Reduced from 0.5 to allow fine-grained view of 10s runs
     df['TimeBin'] = (df['Time_s'] // bin_size) * bin_size
 
-    # Parse filename for title (format: run_scenario_areadistm.csv)
+    # Parse filename for title
     scenario_label = "Unknown"
-    area_label = "Unknown"
+    details_label = "Unknown"
     
     if "run_" in file_name:
         parts = file_name.replace(".csv", "").split("_")
-        if len(parts) >= 3:
+        if "s1" in parts and "s2" in parts:
+            # Format: run_4_s1_21_s2_26.csv
+            scenario_label = "Targeted Loss"
+            idx_s1 = parts.index("s1")
+            idx_s2 = parts.index("s2")
+            if idx_s1 + 1 < len(parts) and idx_s2 + 1 < len(parts):
+                details_label = f"Targets: STA {parts[idx_s1+1]} & STA {parts[idx_s2+1]}"
+        elif len(parts) >= 3:
+            # Old format: run_normal_area25m.csv
             scenario_label = parts[1].capitalize()
-            area_label = parts[2].replace("area", "")
+            details_label = f"Distance: {parts[2].replace('area', '')}"
             
     sns.set_theme(style="whitegrid", context="paper")
     
     fig = plt.figure(figsize=(16, 22))
-    fig.suptitle(f"Matrix Run Analysis | Scenario: {scenario_label} | Distance: {area_label}", fontsize=20, fontweight='bold')
+    fig.suptitle(f"Network Analysis | Scenario: {scenario_label} | {details_label}", fontsize=20, fontweight='bold')
     
     gs = fig.add_gridspec(4, 1, height_ratios=[1.2, 1.2, 1.0, 1.0])
     ax_timeline = fig.add_subplot(gs[0, 0])

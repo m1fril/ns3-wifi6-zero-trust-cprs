@@ -8,19 +8,19 @@ os.makedirs("results/targeted_loss_30_runs", exist_ok=True)
 
 # Helper to run simulation
 def run_sim(run_id, s1, s2):
-    print(f"Starting Run {run_id}: STAs {s1}, {s2} failing at T=20s")
+    print(f"Starting Run {run_id}: STAs {s1}, {s2} failing at T=100s")
     
     # Use different seed for each run
     os.environ["NS_GLOBAL_VALUE"] = f"RngRun={run_id+1}"
     
     cmd = [
         "./ns3", "run", "network-project-main", "--",
-        "--duration=40",
+        "--duration=200",
         "--nStas=30",
         "--scenario=targeted_loss",
         "--targetSta1=" + str(s1),
         "--targetSta2=" + str(s2),
-        "--triggerTime=20",
+        "--triggerTime=100",
         "--roomSize=100"
     ]
     

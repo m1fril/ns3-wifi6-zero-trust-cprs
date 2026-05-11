@@ -167,6 +167,9 @@ void SimulationEnvironment::ServerRxTrace(std::string context, Ptr<const Packet>
 
     TimestampTag tag;
     if (p->PeekPacketTag(tag)) {
+        m_totalRxBytes[tag.GetSenderId()] += p->GetSize();
+        double latency = (Simulator::Now() - tag.GetTimestamp()).GetSeconds() * 1000.0;
+        LogEvent("LATENCY_MS", latency, tag.GetSenderId());
         LogEvent("RECV", p->GetUid(), tag.GetSenderId());
     }
 }
