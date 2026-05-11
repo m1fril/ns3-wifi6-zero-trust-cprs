@@ -17,6 +17,9 @@ int main(int argc, char* argv[]) {
     std::string wifiRate = "OfdmRate12Mbps";
     uint32_t pSize = 1500;
     std::string scenario = "normal";
+    uint32_t targetSta1 = 0;
+    uint32_t targetSta2 = 1;
+    double triggerTime = 20.0;
 
     CommandLine cmd(__FILE__);
     cmd.AddValue("nAps", "Number of Access Points", nAps);
@@ -29,13 +32,16 @@ int main(int argc, char* argv[]) {
     cmd.AddValue("roomSize", "Size of the room in meters (X and Y bounds)", roomSize);
     cmd.AddValue("wifiRate", "Wi-Fi PHY Data Rate", wifiRate);
     cmd.AddValue("pSize", "Packet payload size in bytes", pSize);
-    cmd.AddValue("scenario", "Scenario runbook: normal, controlled, failure, escalation", scenario);
+    cmd.AddValue("scenario", "Scenario runbook: normal, controlled, failure, escalation, targeted_loss", scenario);
+    cmd.AddValue("targetSta1", "Index of first STA to fail (targeted_loss scenario)", targetSta1);
+    cmd.AddValue("targetSta2", "Index of second STA to fail (targeted_loss scenario)", targetSta2);
+    cmd.AddValue("triggerTime", "Time in seconds to trigger the loss", triggerTime);
     cmd.Parse(argc, argv);
 
     Config::SetDefault("ns3::WifiMacQueue::MaxSize", StringValue(std::to_string(queueSize) + "p"));
 
     SimulationEnvironment env;
-    env.Run(nAps, nStas, queueSize, pktInterval, errorRate, visual, duration, roomSize, wifiRate, pSize, scenario);
+    env.Run(nAps, nStas, queueSize, pktInterval, errorRate, visual, duration, roomSize, wifiRate, pSize, scenario, targetSta1, targetSta2, triggerTime);
 
     return 0;
 }

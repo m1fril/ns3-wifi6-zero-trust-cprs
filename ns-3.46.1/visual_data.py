@@ -24,7 +24,7 @@ def visualize_large_ns3_trace(csv_source, num_time_bins=200, save_path=None):
 
     # 1. Create Time Bins
     max_time = df['Time_s'].max()
-    bin_size = max(max_time / num_time_bins, 0.5) 
+    bin_size = max(max_time / num_time_bins, 0.05) # Reduced from 0.5 to allow fine-grained view of 10s runs
     df['TimeBin'] = (df['Time_s'] // bin_size) * bin_size
 
     # Parse filename for title (format: run_scenario_areadistm.csv)

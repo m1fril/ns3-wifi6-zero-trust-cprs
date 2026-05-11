@@ -48,14 +48,23 @@ public:
         return tid;
     }
     virtual TypeId GetInstanceTypeId(void) const { return GetTypeId(); }
-    virtual uint32_t GetSerializedSize(void) const { return sizeof(Time); }
-    virtual void Serialize(TagBuffer i) const { i.Write((const uint8_t*)&m_timestamp, sizeof(Time)); }
-    virtual void Deserialize(TagBuffer i) { i.Read((uint8_t*)&m_timestamp, sizeof(Time)); }
-    virtual void Print(std::ostream& os) const { os << "t=" << m_timestamp; }
+    virtual uint32_t GetSerializedSize(void) const { return sizeof(Time) + sizeof(uint32_t); }
+    virtual void Serialize(TagBuffer i) const { 
+        i.Write((const uint8_t*)&m_timestamp, sizeof(Time)); 
+        i.WriteU32(m_senderId);
+    }
+    virtual void Deserialize(TagBuffer i) { 
+        i.Read((uint8_t*)&m_timestamp, sizeof(Time)); 
+        m_senderId = i.ReadU32();
+    }
+    virtual void Print(std::ostream& os) const { os << "t=" << m_timestamp << ", sid=" << m_senderId; }
     void SetTimestamp(Time time) { m_timestamp = time; }
     Time GetTimestamp(void) const { return m_timestamp; }
+    void SetSenderId(uint32_t id) { m_senderId = id; }
+    uint32_t GetSenderId(void) const { return m_senderId; }
 private:
     Time m_timestamp;
+    uint32_t m_senderId;
 };
 
 SimulationEnvironment::SimulationEnvironment() : m_lastThroughputCalcTime(0) {}
@@ -90,6 +99,22 @@ void SimulationEnvironment::ToggleApGroupPower(bool turnOn, bool oddGroup) {
             double power = turnOn ? 18.0 : -100.0;
             phy->SetAttribute("TxPowerStart", DoubleValue(power));
             phy->SetAttribute("TxPowerEnd", DoubleValue(power));
+        }
+    }
+}
+
+void SimulationEnvironment::SetStaTxPower(uint32_t staIdx, double powerDbm) {
+    if (staIdx < m_staNodes.GetN()) {
+        Ptr<NetDevice> dev = m_staNodes.Get(staIdx)->GetDevice(0);
+        Ptr<WifiNetDevice> wifiDev = DynamicCast<WifiNetDevice>(dev);
+        if (wifiDev) {
+            Ptr<WifiPhy> phy = wifiDev->GetPhy();
+            phy->SetAttribute("TxPowerStart", DoubleValue(powerDbm));
+            phy->SetAttribute("TxPowerEnd", DoubleValue(powerDbm));
+            phy->SetAttribute("TxGain", DoubleValue(-100.0)); // Extreme attenuation
+            LogEvent("TX_POWER_ADJUST", powerDbm, m_staNodes.Get(staIdx)->GetId());
+            std::cout << "Node " << m_staNodes.Get(staIdx)->GetId() << " (STA index " << staIdx 
+                      << ") power set to " << powerDbm << " dBm and TxGain to -100" << std::endl;
         }
     }
 }
@@ -130,47 +155,59 @@ void SimulationEnvironment::CalculateThroughput(double intervalSeconds) {
     Simulator::Schedule(Seconds(intervalSeconds), &SimulationEnvironment::CalculateThroughput, this, intervalSeconds);
 }
 
-void SimulationEnvironment::TracePacketReception(std::string context, Ptr<const Packet> p, uint16_t, WifiTxVector txVector, MpduInfo, SignalNoiseDbm, uint16_t) {
-    Ptr<Packet> packet = p->Copy();
+void SimulationEnvironment::TracePacketReception(std::string context, Ptr<const Packet> p, uint16_t, WifiTxVector, MpduInfo, SignalNoiseDbm, uint16_t) {
+    // Only use for aggregate channel monitoring if needed, otherwise skip to avoid confusion
+    // uint32_t nId = ContextToNodeId(context);
+    // LogEvent("RECV_SNIFFER", 0, nId);
+}
+
+void SimulationEnvironment::ServerRxTrace(std::string context, Ptr<const Packet> p) {
     uint32_t nId = ContextToNodeId(context);
-    if (txVector.IsAggregation()) {
-        AmpduSubframeHeader subHdr;
-        packet->RemoveHeader(subHdr);
-        packet = packet->CreateFragment(0, static_cast<uint32_t>(subHdr.GetLength()));
-    }
-    m_totalRxBytes[nId] += packet->GetSize();
+    if (nId != 1) return; // Only AP 1 reception
+
     TimestampTag tag;
-    if (packet->RemovePacketTag(tag)) {
-        double latencyMs = (Simulator::Now() - tag.GetTimestamp()).GetMilliSeconds();
-        LogEvent("LATENCY_MS", latencyMs, nId);
+    if (p->PeekPacketTag(tag)) {
+        LogEvent("RECV", p->GetUid(), tag.GetSenderId());
     }
-    LogEvent("RECV", 0, nId);
 }
 
 void SimulationEnvironment::WifiMacDropTrace(std::string context, Ptr<const Packet> p) {
-    LogEvent("WIFI_DROP", 0, ContextToNodeId(context));
+    TimestampTag tag;
+    if (p->PeekPacketTag(tag)) {
+        LogEvent("WIFI_DROP", 0, tag.GetSenderId());
+    } else {
+        LogEvent("WIFI_DROP", 0, ContextToNodeId(context));
+    }
 }
 
 void SimulationEnvironment::P2PRxDrop(std::string context, Ptr<const Packet> p) {
-    LogEvent("WIRED_DROP", 0, ContextToNodeId(context));
+    TimestampTag tag;
+    if (p->PeekPacketTag(tag)) {
+        LogEvent("WIRED_DROP", 0, tag.GetSenderId());
+    } else {
+        LogEvent("WIRED_DROP", 0, ContextToNodeId(context));
+    }
 }
 
 void SimulationEnvironment::SocketSendTrace(std::string context, Ptr<const Packet> p, const Address& addr) {
+    uint32_t nId = ContextToNodeId(context);
     TimestampTag tag;
     tag.SetTimestamp(Simulator::Now());
+    tag.SetSenderId(nId);
     p->AddPacketTag(tag);
-    LogEvent("SEND", 0, ContextToNodeId(context));
+    LogEvent("SEND", p->GetUid(), nId);
 }
 
 void SimulationEnvironment::AssociationLog(std::string context, Mac48Address address) {
     uint32_t nodeId = ContextToNodeId(context);
     if (m_associated.find(nodeId) == m_associated.end()) {
         m_associated.insert(nodeId);
+        LogEvent("ASSOC", 0, nodeId);
         LogEvent("JOINED", 0, nodeId);
     }
 }
 
-int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize, uint32_t pktIntervalUs, double errorRate, bool visual, double duration, double roomSize, std::string wifiRate, uint32_t pSize, std::string scenario) {
+int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize, uint32_t pktIntervalUs, double errorRate, bool visual, double duration, double roomSize, std::string wifiRate, uint32_t pSize, std::string scenario, uint32_t targetSta1, uint32_t targetSta2, double triggerTime) {
     m_duration = duration;
     m_associated.clear();
     m_totalRxBytes.clear();
@@ -200,30 +237,26 @@ int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize
     NetDeviceContainer p2pDevices;
     for (uint32_t i = 0; i < nAps; i++) p2pDevices.Add(p2p.Install(gatewayNode.Get(0), m_apNodes.Get(i)));
 
-    YansWifiPhyHelper phy; YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
-    phy.SetErrorRateModel("ns3::NistErrorRateModel"); phy.SetChannel(wifiChannel.Create());
-    phy.Set("TxPowerStart", DoubleValue(18.0)); phy.Set("TxPowerEnd", DoubleValue(18.0));
+    YansWifiChannelHelper channel = YansWifiChannelHelper::Default();
+    YansWifiPhyHelper phy; phy.SetChannel(channel.Create());
+    WifiHelper wifi; wifi.SetStandard(WIFI_STANDARD_80211n);
+    wifi.SetRemoteStationManager("ns3::IdealWifiManager");
 
-    WifiHelper wifi; wifi.SetStandard(WIFI_STANDARD_80211a);
-    wifi.SetRemoteStationManager("ns3::ConstantRateWifiManager", "DataMode", StringValue(wifiRate), "ControlMode", StringValue(wifiRate));
-
-    WifiMacHelper mac; Ssid ssid = Ssid("wifi-test");
-    const uint16_t valid5GhzChannels[] = {36, 40, 44, 48, 149, 153, 157, 161, 165};
-    const uint16_t numChannels = sizeof(valid5GhzChannels) / sizeof(valid5GhzChannels[0]);
-
+    WifiMacHelper mac;
     uint32_t macStaCounter = 0;
     uint32_t macStasPerAp = nStas / nAps;
 
-    for (uint32_t i = 0; i < m_apNodes.GetN(); i++) {
-        uint16_t assignedChannel = valid5GhzChannels[i % numChannels];
-        std::string channelStr = "{" + std::to_string(assignedChannel) + ", 20, BAND_5GHZ, 0}";
-        phy.Set("ChannelSettings", StringValue(channelStr));
+    for (uint32_t i = 0; i < nAps; i++) {
+        std::string ssidStr = "ns3-80211n-" + std::to_string(i);
+        Ssid ssid = Ssid(ssidStr);
+        
         mac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid));
         wifi.Install(phy, mac, m_apNodes.Get(i));
+
+        mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid), "ActiveProbing", BooleanValue(true));
         uint32_t count = macStasPerAp + (i < (nStas % nAps) ? 1 : 0);
         NodeContainer currentApStas;
         for (uint32_t j = 0; j < count; j++) currentApStas.Add(m_staNodes.Get(macStaCounter++));
-        mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid));
         wifi.Install(phy, mac, currentApStas);
     }
 
@@ -277,8 +310,7 @@ int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize
                 client->SetAttribute("PacketSize", UintegerValue(pSize));
                 client->SetAttribute("Interval", TimeValue(MicroSeconds(pktIntervalUs)));
                 client->SetAttribute("MaxPackets", UintegerValue(99999999));
-                double startTime = (staCounter / 10) * 100.0 + 0.5;
-                if (startTime >= duration) startTime = duration - 1.0;
+                double startTime = 1.0; 
                 client->SetStartTime(Seconds(startTime)); client->SetStopTime(Seconds(duration));
                 Ptr<PacketSocketServer> server = CreateObject<PacketSocketServer>();
                 server->SetLocal(socketAddr); receiver->AddApplication(server);
@@ -287,7 +319,7 @@ int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize
         }
     }
 
-    Config::Connect("/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Phy/$ns3::WifiPhy/MonitorSnifferRx", MakeCallback(&SimulationEnvironment::TracePacketReception, this));
+    Config::Connect("/NodeList/1/DeviceList/*/$ns3::WifiNetDevice/Phy/$ns3::WifiPhy/PhyRxEnd", MakeCallback(&SimulationEnvironment::ServerRxTrace, this));
     Config::Connect("/NodeList/*/ApplicationList/*/$ns3::PacketSocketClient/Tx", MakeCallback(&SimulationEnvironment::SocketSendTrace, this));
     Config::Connect("/NodeList/*/DeviceList/*/$ns3::PointToPointNetDevice/PhyRxDrop", MakeCallback(&SimulationEnvironment::P2PRxDrop, this));
     Config::Connect("/NodeList/*/DeviceList/*/$ns3::WifiNetDevice/Mac/$ns3::StaWifiMac/Assoc", MakeCallback(&SimulationEnvironment::AssociationLog, this));
@@ -324,6 +356,13 @@ int SimulationEnvironment::Run(uint32_t nAps, uint32_t nStas, uint32_t queueSize
     auto director = std::make_shared<DirectorAgent>(scenarioPlan);
     director->Initialize(this);
     orchestrator.RegisterAgent(director);
+
+    // Targeted Loss Agent
+    if (scenario == "targeted_loss") {
+        auto targetedLoss = std::make_shared<TargetedLossAgent>(targetSta1, targetSta2, triggerTime, -80.0);
+        targetedLoss->Initialize(this);
+        orchestrator.RegisterAgent(targetedLoss);
+    }
 
     // Escalation Agent
     auto escalation = std::make_shared<LinearEscalationAgent>(
