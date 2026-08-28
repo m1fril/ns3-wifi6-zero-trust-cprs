@@ -20,6 +20,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include <vector>
 
 namespace ns3
 {
@@ -43,7 +44,13 @@ class SimulationEnvironment
             std::string scenario,
             uint32_t targetSta1 = 0,
             uint32_t targetSta2 = 1,
-            double triggerTime = 20.0);
+            double triggerTime = 20.0,
+            double fixedStaDistance = 0.0,
+            bool fixedStaPlacement = false,
+            double fixedTxPowerDbm = 0.0,
+            bool enableNakagamiFading = false,
+            bool fixedStaRingPlacement = false,
+            bool compactMetrics = false);
 
     // Agent API
     SimulationMode GetCurrentMode() const
@@ -70,6 +77,10 @@ class SimulationEnvironment
     std::ofstream m_csvLogFile;
     std::map<uint32_t, std::string> m_nodeTypes;
     std::map<uint32_t, uint64_t> m_totalRxBytes;
+    bool m_compactMetrics = false;
+    uint64_t m_intervalSentPackets = 0;
+    uint64_t m_intervalReceivedPackets = 0;
+    std::vector<double> m_intervalLatenciesMs;
     double m_lastThroughputCalcTime;
     std::set<uint32_t> m_associated;
 
@@ -92,7 +103,7 @@ class SimulationEnvironment
                               uint16_t staId);
     void WifiMacDropTrace(std::string context, Ptr<const Packet> p);
     void P2PRxDrop(std::string context, Ptr<const Packet> p);
-    void ServerRxTrace(std::string context, Ptr<const Packet> p);
+    void ServerRxTrace(std::string context, Ptr<const Packet> p, const Address& from);
     void SocketSendTrace(std::string context, Ptr<const Packet> p, const Address& addr);
     void AssociationLog(std::string context, Mac48Address address);
 };
