@@ -1,110 +1,229 @@
-This is **_ns-3-allinone_**, a repository with some scripts that bundle
-ns-3's mainline source code with compatible
-[App Store modules](https://apps.nsnam.org).
+# ns3-wifi6-zero-trust-cprs
 
-The mainline ns-3 release or development tree (ns-3-dev) only contains
-the ns-3 project's maintained
-modules (libraries) as found in the `src/` directory.  The `contrib/`
-directory is empty in the project mainline, allowing users to later
-download or clone extension modules to it.
+Simulation environment, campaign runners and measured traces for IEEE 802.11ax
+(Wi‑Fi 6) link-resilience thresholds in **Zero Trust cyber-physical robotic
+systems (CPRS)**.
 
-In contrast, the ns-3 source code in this release contains several
-additional contrib modules known to work with the release.  In
-all other respects, this release should be identical with the main
-tree release with the same number.
+This repository is the reproducibility artifact for the paper:
 
-## Usage
+> Пахомов М. В. **Архітектура нульової довіри для кіберфізичних робототехнічних
+> систем: базові вимоги та межі стійкості безпроводового каналу.**
+> Київський столичний університет імені Бориса Грінченка.
+> ORCID [0009-0007-7343-6912](https://orcid.org/0009-0007-7343-6912)
 
-If you have downloaded this as a source archive of a release, simply
-recurse into the ns-3 directory and configure and build ns-3 as usual.
-The build process will include all modules found in the contrib directory
-that are compatible with your system (as detected by the `ns3` build
-script).  If you are not interested in some of the contributed modules,
-and want to shorten the compilation time, feel free to delete any such
-subdirectories from your `contrib` directory.
- 
-If you have cloned ns-3-allinone.git, you can checkout the manifest
-that corresponds to a particular release by checking out a tagged
-branch such as follows.
+The paper formulates five baseline Zero Trust requirements for CPRS and derives
+two *separate* wireless resilience thresholds from the measurements below. The
+network results characterise the conditions under which telemetry is delivered
+and a response mode is chosen; they do **not** by themselves prove that
+identity, authorisation or segmentation are correctly implemented.
 
-By default, the `download.py` script will clone and checkout the latest
-ns-3 release.
+---
 
-```shell
-./download.py
+## What is measured
+
+One AP and 20 stations placed evenly on a ring around the AP, at a fixed
+AP–STA distance. Each STA sends a 1500-byte packet every 2400 µs
+(5 Mbit/s per STA, **100 Mbit/s offered load in total**) to a single
+application server behind the AP.
+
+The campaign sweeps **14 distances from 30 to 125 m** with **10 independent
+repetitions each** (`RngRun=1..10`), i.e. **140 traces**.
+
+### Radio configuration
+
+| Parameter | Value |
+|---|---|
+| Standard | IEEE 802.11ax (`WIFI_STANDARD_80211ax`) |
+| Channel | `{42, 80, BAND_5GHZ, 0}` — channel 42, 80 MHz, centre 5210 MHz |
+| Rate control | `IdealWifiManager` |
+| Tx power (AP and STA) | 24 dBm relative to 1 mW (≈ 251 mW) |
+| AP antennas / streams | 4 antennas, 4 Tx and 4 Rx spatial streams |
+| STA antennas / streams | 2 antennas, 2 Tx and 2 Rx spatial streams |
+| Link-layer queue | 500 packets |
+| Path loss | `LogDistancePropagationLossModel`, exponent n = 3, d₀ = 1 m, L₀ = 46.6777 dB (Friis at 1 m for 5.15 GHz — ns‑3 default) |
+| Fading | `NakagamiPropagationLossModel`, m₀ = 1.5 (d < 80 m), m₁ = 0.75 (80 ≤ d < 200 m), m₂ = 0.75 (d ≥ 200 m) |
+| Duration | 20 s per run |
+
+All propagation values are ns‑3 defaults; the scenario does not override them.
+
+---
+
+## How the metrics are computed
+
+`compactMetrics=1` writes one record per second at the AP:
+`AGGREGATE_THROUGHPUT_MBPS`, `SENT_COUNT`, `RECV_COUNT`, `LATENCY_P95_MS`.
+Aggregate goodput is measured **once at the AP**, over the useful bytes received
+by the single server from all 20 STAs, so there is no double counting and no
+control traffic is credited as payload.
+
+Reducing a trace to one number per distance is a two-stage operation:
+
+| Metric | Per run | Across the 10 runs |
+|---|---|---|
+| Aggregate goodput, Mbit/s | **median** of the per-second `AGGREGATE_THROUGHPUT_MBPS` series | **median** |
+| p95 latency, ms | **95th percentile** of the per-second `LATENCY_P95_MS` series | **median** |
+| Packet loss, % | `(Σ SENT_COUNT − Σ RECV_COUNT) / Σ SENT_COUNT · 100` | **median** |
+
+Dispersion is reported as the quartile deviation `Q = (Q3 − Q1) / 2`, with
+quartiles obtained by linear interpolation. `Q` is a non-parametric measure: it
+is not a confidence interval and assumes no symmetry.
+
+> **Survivorship bias.** `LATENCY_P95_MS` is computed over *delivered* packets
+> only. Beyond ~90 % loss the delivered subset shrinks and becomes biased
+> towards packets that caught a favourable fading window, so p95 stops being
+> monotone (747.3 ms at 105 m vs 649.6 ms at 110 m). That non-monotonicity is a
+> measurement artefact, not an improving channel, and it is not statistically
+> significant (Mann–Whitney U over the two groups of 10 runs gives p ≈ 0.65).
+> In that region loss, not latency, is the reliable indicator.
+
+---
+
+## Results
+
+Median ± quartile deviation `Q` over 10 repetitions per distance:
+
+| AP–STA, m | Aggregate goodput, Mbit/s | p95 latency, ms | Loss, % |
+|---:|---:|---:|---:|
+| 30 | 99.936 ± 0.121 | 189.4 ± 6.4 | 0.27 ± 0.03 |
+| 40 | 99.210 ± 0.319 | 351.8 ± 10.8 | 0.86 ± 0.15 |
+| 50 | 90.531 ± 0.428 | 525.9 ± 7.3 | 9.61 ± 0.40 |
+| 60 | 77.541 ± 1.048 | 568.1 ± 3.0 | 22.74 ± 0.75 |
+| 70 | 64.050 ± 1.528 | 581.8 ± 2.9 | 35.64 ± 1.18 |
+| 80 | 43.122 ± 1.781 | 555.2 ± 1.2 | 56.68 ± 2.06 |
+| 85 | 30.246 ± 1.951 | 549.9 ± 2.1 | 70.02 ± 1.67 |
+| 90 | 19.296 ± 2.315 | 549.0 ± 3.4 | 80.19 ± 2.52 |
+| 100 | 7.785 ± 0.517 | 584.5 ± 34.1 | 91.50 ± 0.41 |
+| 105 | 5.121 ± 0.372 | 747.3 ± 210.6 | 94.66 ± 0.17 |
+| 110 | 2.289 ± 0.345 | 649.6 ± 55.1 | 97.59 ± 0.42 |
+| 115 | 1.140 ± 0.203 | 577.9 ± 276.8 | 98.68 ± 0.21 |
+| 120 | 0.678 ± 0.086 | 569.0 ± 16.7 | 99.45 ± 0.09 |
+| 125 | 0.387 ± 0.074 | 552.8 ± 14.6 | 99.81 ± 0.05 |
+
+### Two separate thresholds
+
+Degradation is **two-stage**, and the two thresholds are kept apart on purpose:
+
+* **Early timing threshold `d_T* = 40 m`.** With the 30 m baseline,
+  `R_T(40) = 351.8 / 189.4 = 1.86 ≥ 1.5`, the condition also holds at the next
+  distance, and goodput is still 99.210 Mbit/s at 0.86 % loss. Latency degrades
+  well before application data is lost.
+* **Sustained loss threshold `d_L* = 50 m`.** Loss rises by
+  `ΔL = 9.34` percentage points over the 0.27 % baseline and keeps rising at the
+  next distance (22.74 % at 60 m).
+
+The 100 ms level is an auxiliary materiality condition, not a threshold on its
+own: the 30 m baseline already exceeds it, and the baseline is never a
+candidate.
+
+For a Zero Trust policy this means the operating mode must not be driven by a
+single network metric: 40 m is where telemetry-freshness checks and a local
+fallback mode should be prepared, and 50 m is where limited operation, caching
+of the last valid decision or safe handover become justified.
+
+---
+
+## Reproducing the campaign
+
+Build ns‑3 (this tree is the `ns-allinone-3.46.1` distribution) and then the
+scenario:
+
+```bash
+cd ns-3.46.1
+./ns3 configure --build-profile=optimized
+./ns3 build
 ```
-After the above command succeeds, an `ns-3.45` directory will be
-present containing the latest release, and within that directory's
-contrib directory, several extension modules will be downloaded.
-`download.py` reports on the extra modules that have been downloaded.
 
-The script also can be used to download and check against ns-3-dev
-as follows:
+This produces `build/scratch/network-project/ns3.46.1-network-project-main-optimized`,
+which the campaign runner expects.
 
-```shell
-./download.py ns-3-dev
+Run the full campaign (skips any trace that already exists):
+
+```bash
+cd ns-3.46.1
+./run_goodput_20sta_5mbps_wifi6_30_125_10runs.sh
 ```
 
-Note that using download.py with ns-3-dev may lead to compilation errors
-if the contrib modules listed in `MANIFEST.md` have not been upgraded
-to ns-3-dev compatibility, but any such modules could either be fixed locally
-or else deleted if not of interest.  
+A subset can be selected with environment variables:
 
-ns-3.45 is the earliest such release that is supported; see
-[History](#history) below for ns-3-allinone prior to ns-3.45.
+```bash
+DISTANCE_FILTER="30 40 50" RUN_FILTER="1 2" ./run_goodput_20sta_5mbps_wifi6_30_125_10runs.sh
+```
 
-## Documentation
+A single run directly:
 
-The manifest of contributed modules can be found in [MANIFEST.md](MANIFEST.md).
-This release does not package documentation of the contributed modules; please
-visit the App Store page or the module's repository itself for such documentation.
- 
-## Scope and Limitations
+```bash
+./build/scratch/network-project/ns3.46.1-network-project-main-optimized \
+  --nAps=1 --nStas=20 --duration=20 --pktInterval=2400 --roomSize=125 \
+  --fixedStaPlacement=1 --fixedStaRingPlacement=1 --fixedStaDistance=50 \
+  --fixedTxPowerDbm=24 --enableNakagamiFading=1 --compactMetrics=1 \
+  --scenario=normal --RngRun=1
+```
 
-The ns-3 mainline undergoes thorough CI testing of the build on many
-systems and compiler versions, as well as documentation and code style
-checks.  Contributed modules are not subjected to the same level of testing
-or adherence to style or other conventions.  This distribution errs on the
-side of inclusion of many modules so that users may learn about them,
-with the downside that users may encounter compilation problems on some
-systems.  The easiest fix is to delete any contrib modules that are
-causing problems, unless of course you want to use those modules, in which
-case you will need to fix that code by hand.
+Tests:
 
-If users find a compatibility issue with a contributed module, please
-file an issue on the upstream module's issue tracker, not on ns-3-allinone.
+```bash
+cd ns-3.46.1 && python3 -m pytest tests/
+```
 
-## Proposing New Modules
+---
 
-To recommend a new module for future inclusion in ns-allinone, please post
-a pull request to https://gitlab.com/nsnam/ns-3-allinone repository to
-add it to the file `MANIFEST.md`.
+## Layout
 
-To test it for inclusion, you can follow these steps:
+```
+ns-3.46.1/
+├── scratch/network-project/            # scenario sources
+│   ├── simulation-environment.cc/.h    # topology, PHY/MAC setup, metric tracing
+│   └── ...                             # scenario agents and orchestration
+├── run_goodput_20sta_5mbps_wifi6_30_125_10runs.sh   # 20 STA campaign runner
+├── run_goodput_30sta_ring_30_125_10runs.sh          # 30 STA variant
+├── tests/                              # runner and analysis tests
+└── results/
+    └── goodput_20sta_5mbps_wifi6_ap4x4_30_125_10runs/
+        ├── README_20sta_5mbps_results.md   # campaign notes (Ukrainian)
+        ├── breakpoint_summary.csv           # one row per distance
+        └── normal_distance{d}m_run{r}.csv   # 140 traces
+```
 
-1. Run the './download.py' script, which will check out ns-3-dev and all
-   modules listed in the MANIFEST.md
+Trace provenance is encoded in the file name: `normal_distance{d}m_run{r}.csv`
+carries the distance and the repetition number. Each trace opens with
+`FIXED_STA_DISTANCE`, `FIXED_TX_POWER_DBM` and `NAKAGAMI_FADING` events that
+confirm the key scenario parameters, so a file can be validated on its own.
 
-2. cd into ns-3-dev, and checkout the version of ns-3 that is being prepared
-   for allinone release.  For instance, if ns-3.45 has been release and
-   ns-allinone-3.45 is being prepared to be published shortly afterwards,
-   checkout the ns-3.45 tag in ns-3-dev to test against.
+---
 
-3. Configure ns-3 with examples and tests, and build and run test.py.
+## Scope and limitations
 
-If your module depends on additional third-party libraries (such as Boost),
-your module must still compile cleanly on a system that does not have these
-dependencies.  A good way to check this is to perform the above test on a
-Docker container that has the minimal ns-3 requirements (CMake, Python3 and
-a c++ compiler).
+* One configuration only: 20 homogeneous **stationary** STAs on a ring, one AP,
+  identical load, no interference from other networks, no mobility.
+* Application-level delivery, latency and loss only. The traces contain no
+  full packet sequences, no SNR, no retransmission or MCS history.
+* The traces do **not** exercise identity, authorisation or segmentation.
+  Validating those requires synchronised policy logs, security events and robot
+  physical state — the data pipeline proposed in the paper.
 
-## History
+---
 
-Prior to the ns-3.45 release, ns-3-allinone was a bundle that included
-the [bake packaging tool](https://gitlab.com/nsnam/bake.git), the
-[NetAnim](https://gitlab.com/nsnam/netanim.git) network animator, and
-ns-3.  Starting with ns-3.45, ns-3-allinone was changed to focus instead
-on ns-3 and compatible contributed App Store modules.
+## Citing
 
-ns-3-allinone used to have a `build.py` script, but building is now
-only coordinated by the `ns3` script.
+```bibtex
+@software{pakhomov_ns3_wifi6_zero_trust_cprs,
+  author  = {Pakhomov, Mykhailo V.},
+  title   = {ns3-wifi6-zero-trust-cprs: ns-3 simulation environment for the
+             20 STA / 1 AP IEEE 802.11ax campaign},
+  year    = {2026},
+  url     = {https://github.com/m1fril/ns3-wifi6-zero-trust-cprs},
+  note    = {Source code and measured traces}
+}
+```
+
+---
+
+## License
+
+GNU General Public License v2.0 — inherited from ns‑3, which this tree
+redistributes. See [LICENSE](LICENSE).
+
+This repository is the `ns-allinone-3.46.1` distribution of
+[ns-3](https://www.nsnam.org/) with the scenario, campaign runners and measured
+traces above added under `ns-3.46.1/`. ns‑3 itself is the work of the nsnam
+project; upstream documentation is at <https://www.nsnam.org/documentation/>.
