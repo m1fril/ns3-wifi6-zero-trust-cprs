@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sim Orchestrator</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f4f2; --surface: #fcfcfb; --border: #e3e2de; --grid: #ecebe7;
+  --text: #0b0b0b; --text-2: #52514e; --muted: #8a8984;
+  --accent: #2a78d6; --series: #2a78d6; --event: #8a8984; --link: #8a8984;
+  --good: #008300; --bad: #d03b3b; --warn: #b77a00;
+  /* categorical slots in fixed order (validated: light adjacent pass, first 3 pass all-pairs) */
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100; --c5: #e87ba4;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --bg: #111110; --surface: #1a1a19; --border: #2e2e2c; --grid: #262624;
+    --text: #ffffff; --text-2: #c3c2b7; --muted: #8d8c85;
+    --accent: #3987e5; --series: #3987e5; --event: #8d8c85; --link: #6f6e68;
+    --good: #3fae3f; --bad: #e66767; --warn: #d9a03a;
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110; --surface: #1a1a19; --border: #2e2e2c; --grid: #262624;
+  --text: #ffffff; --text-2: #c3c2b7; --muted: #8d8c85;
+  --accent: #3987e5; --series: #3987e5; --event: #8d8c85; --link: #6f6e68;
+  --good: #3fae3f; --bad: #e66767; --warn: #d9a03a;
+  --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 system-ui, -apple-system, sans-serif; }
+header { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; padding: 10px 16px;
+         background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 2; }
+header h1 { font-size: 15px; margin: 0 8px 0 0; font-weight: 600; }
+nav button { background: none; border: 0; padding: 6px 10px; border-radius: 6px; color: var(--text-2); cursor: pointer; font: inherit; }
+nav button[aria-selected="true"] { background: var(--bg); color: var(--text); font-weight: 600; }
+.spacer { flex: 1; }
+input, textarea, select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; }
+button.btn { font: inherit; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.btn:disabled { opacity: .5; cursor: default; }
+main { padding: 16px; max-width: 1400px; margin: 0 auto; }
+.layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 16px; }
+.scroll-x { overflow-x: auto; }
+@media (max-width: 800px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.card h2 { font-size: 13px; margin: 0 0 8px; color: var(--text-2); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+.runs { list-style: none; margin: 0; padding: 0; }
+.runs li { padding: 7px 8px; border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.runs li:hover { background: var(--bg); }
+.runs li[aria-current="true"] { background: var(--bg); font-weight: 600; }
+.runs .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tag { font-size: 11px; color: var(--text-2); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; margin-left: 6px; font-weight: 400; }
+.badge { font-size: 12px; color: var(--text-2); white-space: nowrap; }
+.badge::before { content: "●"; margin-right: 4px; color: var(--muted); }
+.badge.done::before, .badge.finished::before, .badge.PASS::before { color: var(--good); }
+.badge.running::before, .badge.stopping::before { color: var(--accent); }
+.badge.failed::before, .badge.interrupted::before, .badge.FAIL::before { color: var(--bad); }
+.badge.stopped::before, .badge.cancelled::before, .badge.WARN::before { color: var(--warn); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { font-weight: 500; color: var(--text-2); font-size: 12px; }
+td.num, th.num { text-align: right; }
+td.wrap { white-space: normal; color: var(--text-2); }
+#instRows tr { cursor: pointer; }
+#instRows tr:hover, #instRows tr[aria-current="true"] { background: var(--bg); }
+.bar { width: 90px; height: 6px; background: var(--grid); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.bar > i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.stack > * + * { margin-top: 16px; }
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px 12px; }
+.chart h3 { font-size: 13px; margin: 0 0 4px; font-weight: 600; }
+.chart svg { width: 100%; height: 150px; display: block; overflow: visible; }
+svg text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--text-2); margin: 2px 0 6px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.legend i.round { border-radius: 50%; }
+.legend i.hollow { background: none !important; border: 1.5px dashed var(--text-2); border-radius: 50%; }
+.legend i.square { border-radius: 1px; }
+.tooltip { position: fixed; pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+           border-radius: 6px; padding: 6px 8px; font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); display: none; z-index: 5; }
+.tooltip b { font-variant-numeric: tabular-nums; }
+.tooltip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
+pre { margin: 0; font: 12px/1.4 var(--mono); white-space: pre-wrap; word-break: break-all; max-height: 320px; overflow: auto; color: var(--text-2); }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row input[type=text] { flex: 1; min-width: 220px; font-family: var(--mono); }
+.chips button { font: 12px var(--mono); border: 1px solid var(--border); background: var(--bg); color: var(--text-2); border-radius: 12px; padding: 3px 9px; cursor: pointer; }
+.msg { font-size: 13px; color: var(--text-2); min-height: 1.4em; }
+.msg.err { color: var(--bad); }
+.msg.ok { color: var(--good); }
+textarea#config { width: 100%; min-height: 70vh; font: 13px/1.45 var(--mono); tab-size: 2; }
+.empty { color: var(--muted); padding: 24px 0; text-align: center; }
+.hint { color: var(--muted); font-size: 12px; margin: 8px 0 0; }
+#map { width: 100%; height: 380px; display: block; }
+#map .node { cursor: pointer; }
+.slider { display: flex; gap: 10px; align-items: center; margin-top: 6px; font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.slider input { flex: 1; padding: 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin: 8px 0 12px; }
+.tile { border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; }
+.tile .k { font-size: 11.5px; color: var(--text-2); }
+.tile .v { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+#nodePanel { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px; }
+#nodePanel h3 { margin: 0; font-size: 14px; }
+.mini svg { width: 100%; height: 110px; display: block; overflow: visible; }
+.mini h4 { margin: 0 0 2px; font-size: 12.5px; font-weight: 600; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Sim Orchestrator</h1>
+  <nav role="tablist">
+    <button role="tab" aria-selected="true" data-tab="runs">Runs</button>
+    <button role="tab" aria-selected="false" data-tab="config">Config</button>
+  </nav>
+  <div class="spacer"></div>
+  <select id="runConfig" aria-label="Config for the new run"></select>
+  <input id="runName" type="text" placeholder="run name (auto)" size="20" aria-label="Run name">
+  <button id="startBtn" class="btn primary">▶ Start</button>
+  <span id="headMsg" class="msg"></span>
+</header>
+
+<main>
+  <section id="tab-runs" class="layout">
+    <div class="card"><h2>Runs</h2><ul id="runList" class="runs"></ul><div id="noRuns" class="empty">No runs yet</div></div>
+
+    <div class="stack" id="runView" hidden>
+      <div class="card">
+        <div class="row" style="justify-content: space-between; margin-bottom: 8px">
+          <h2 id="runTitle" style="margin:0"></h2>
+          <div class="row">
+            <button id="verifyBtn" class="btn">✓ Verify</button>
+            <button id="stopBtn" class="btn">■ Stop</button>
+          </div>
+        </div>
+        <div class="scroll-x"><table>
+          <thead><tr>
+            <th>Instance</th><th>Status</th><th>Progress</th><th class="num">Restarts</th><th class="num">Sent</th>
+            <th class="num">PDR</th><th class="num">Mbit/s</th><th class="num">p95, ms</th><th class="num" id="hopsHead">Hops</th>
+            <th class="num">Active nodes</th><th class="num">Failures</th>
+          </tr></thead>
+          <tbody id="instRows"></tbody>
+        </table></div>
+      </div>
+
+      <div class="card" id="verifyCard" hidden>
+        <h2>Verification <span class="tag" id="verifyVerdict"></span></h2>
+        <div class="scroll-x"><table>
+          <thead><tr><th>Instance</th><th>Check</th><th>Result</th><th>Detail</th></tr></thead>
+          <tbody id="verifyRows"></tbody>
+        </table></div>
+        <p class="hint">An independent model replays the executed timeline and predicts generated packets, netem drops, active nodes and netem latency; every lost packet must have a logged cause. Run: <code>python3 verify.py runs/&lt;name&gt;</code>.</p>
+      </div>
+
+      <div id="instView" class="stack" hidden>
+        <div class="card">
+          <h2 id="instTitle"></h2>
+          <div class="charts" id="charts"></div>
+          <p class="hint">Dashed lines on “Active nodes” mark NODE_DOWN/NODE_UP events. PDR is per 1 s bin, so it can briefly exceed 100% when delayed packets arrive in the next second.</p>
+        </div>
+
+        <div class="card" id="mapCard" hidden>
+          <h2>Mesh topology</h2>
+          <div class="legend" id="mapLegend"></div>
+          <svg id="map" role="img" aria-label="Mesh topology"></svg>
+          <div class="slider"><span>t</span><input id="mapTime" type="range" min="0" max="60" step="0.1" value="0" aria-label="Topology time"><span id="mapTimeLabel">0.0 s</span></div>
+          <p class="hint">Peer links that are open at the selected time. Hovering a chart moves the time; click a node for its details.</p>
+          <div id="nodePanel" hidden>
+            <div class="row" style="justify-content: space-between">
+              <h3 id="nodeTitle"></h3>
+              <button id="nodeCtl" class="btn">Use in live control</button>
+            </div>
+            <div class="tiles" id="nodeTiles"></div>
+            <div class="charts" id="nodeCharts"></div>
+            <p class="hint">Tiles show the 1-second bin that holds the selected time. Shaded bands on the charts = the node was down.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Live control</h2>
+          <div class="row">
+            <input id="ctlCmd" type="text" placeholder="NODE sta:3 down" aria-label="Command">
+            <button id="ctlBtn" class="btn primary">Send</button>
+          </div>
+          <div class="row chips" style="margin-top:8px" id="chips"></div>
+          <div id="ctlMsg" class="msg"></div>
+          <p class="hint">Executed on the next heartbeat (100 ms of simulated time). For wall-clock control set <code>sim.args.realtime: 1</code>.</p>
+        </div>
+
+        <div class="card">
+          <div class="row" style="margin-bottom: 8px">
+            <nav role="tablist" id="logTabs">
+              <button role="tab" aria-selected="true" data-log="stdout">stdout</button>
+              <button role="tab" aria-selected="false" data-log="timeline">timeline</button>
+              <button role="tab" aria-selected="false" data-log="orch">orchestrator.log</button>
+            </nav>
+          </div>
+          <pre id="logText"></pre>
+        </div>
+      </div>
+    </div>
+    <div id="runPlaceholder" class="card empty">Pick a run on the left or start a new one</div>
+  </section>
+
+  <section id="tab-config" hidden>
+    <div class="card stack">
+      <div class="row" style="justify-content: space-between">
+        <div class="row"><select id="editConfig" aria-label="Config to edit"></select><span class="hint" id="configPath" style="margin:0"></span></div>
+        <div class="row"><span id="configMsg" class="msg"></span><button id="saveBtn" class="btn primary">Validate &amp; save</button></div>
+      </div>
+      <textarea id="config" spellcheck="false" aria-label="Config file"></textarea>
+    </div>
+  </section>
+</main>
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const el = (tag, props = {}, ...kids) => { const n = Object.assign(document.createElement(tag), props); n.append(...kids); return n; };
+const svgEl = (tag, attrs = {}) => { const n = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+const fmt = (v, d = 2) => v == null ? "–" : (typeof v === "number" ? v.toLocaleString("en-US", { maximumFractionDigits: d }) : String(v));
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+function flash(node, text, kind) { node.textContent = text; node.className = "msg " + (kind || ""); }
+
+const S = { run: null, inst: null, log: "stdout", runInfo: null, metrics: null, mapTime: null };
+
+// ---------- tabs
+document.querySelectorAll("header nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("header nav button").forEach(x => x.setAttribute("aria-selected", x === b));
+  $("tab-runs").hidden = b.dataset.tab !== "runs";
+  $("tab-config").hidden = b.dataset.tab !== "config";
+  if (b.dataset.tab === "config") loadConfig();
+});
+$("logTabs").querySelectorAll("button").forEach(b => b.onclick = () => {
+  $("logTabs").querySelectorAll("button").forEach(x => x.setAttribute("aria-selected", x === b));
+  S.log = b.dataset.log; refreshLog();
+});
+
+// ---------- configs
+async function loadConfigList() {
+  const { default: def, files } = await api("/api/configs");
+  for (const sel of [$("runConfig"), $("editConfig")]) {
+    const keep = sel.value;
+    sel.replaceChildren(...files.map(f => el("option", { value: f, textContent: f })));
+    sel.value = files.includes(keep) ? keep : def;
+  }
+}
+
+// ---------- runs
+async function refreshRuns() {
+  const { active, runs } = await api("/api/runs");
+  $("startBtn").disabled = !!active;
+  $("noRuns").hidden = runs.length > 0;
+  $("runList").replaceChildren(...runs.map(r => {
+    const inst = Object.values(r.instances);
+    const done = inst.filter(i => !["pending", "running"].includes(i.status)).length;
+    const li = el("li", { onclick: () => selectRun(r.name), title: r.name },
+      el("span", { className: "name" }, r.name, el("span", { className: "tag", textContent: r.topology })),
+      el("span", { className: "badge " + r.state, textContent: `${r.state} ${done}/${inst.length}` }));
+    li.setAttribute("aria-current", r.name === S.run);
+    return li;
+  }));
+}
+
+function selectRun(name) {
+  S.run = name; S.inst = null; S.metrics = null;
+  $("runView").hidden = false; $("runPlaceholder").hidden = true; $("instView").hidden = true;
+  $("charts").replaceChildren();
+  refreshRuns(); refreshRun();
+}
+
+async function refreshRun() {
+  if (!S.run) return;
+  const r = S.runInfo = await api("/api/run?run=" + encodeURIComponent(S.run));
+  const mesh = r.topology === "mesh";
+  $("runTitle").replaceChildren(el("span", { textContent: r.name }), el("span", { className: "tag", textContent: r.topology }),
+    " ", el("span", { className: "badge " + r.state, textContent: r.state }));
+  $("stopBtn").disabled = !["running", "stopping"].includes(r.state);
+  $("verifyBtn").disabled = r.state !== "finished";
+  $("hopsHead").hidden = !mesh;
+  const rows = Object.entries(r.instances).map(([id, i]) => {
+    // the last CSV row lands up to 1 s before the end, so a finished instance reads 100%
+    const pct = i.status === "done" ? 100 : Math.min(100, 100 * (i.sim_time || 0) / (r.duration || 1));
+    const hops = el("td", { className: "num", textContent: fmt(i.hops_mean) }); hops.hidden = !mesh;
+    const tr = el("tr", { onclick: () => selectInst(id) },
+      el("td", { textContent: id }),
+      el("td", {}, el("span", { className: "badge " + i.status, textContent: i.status })),
+      el("td", {}, el("span", { className: "bar", title: `${fmt(i.sim_time, 1)} / ${r.duration} s` }, el("i", { style: `width:${pct}%` })), " " + Math.round(pct) + "%"),
+      el("td", { className: "num", textContent: i.restarts }),
+      el("td", { className: "num", textContent: fmt(i.sent, 0) }),
+      el("td", { className: "num", textContent: i.pdr == null ? "–" : (100 * i.pdr).toFixed(1) + "%" }),
+      el("td", { className: "num", textContent: fmt(i.throughput_mbps_mean) }),
+      el("td", { className: "num", textContent: fmt(i.latency_p95_ms_median) }),
+      hops,
+      el("td", { className: "num", textContent: i.active_stas_min_max ? i.active_stas_min_max.join("–") : "–" }),
+      el("td", { className: "num", textContent: fmt(i.node_down, 0) }));
+    tr.setAttribute("aria-current", id === S.inst);
+    return tr;
+  });
+  $("instRows").replaceChildren(...rows);
+  showVerify(r.verify);
+}
+
+function showVerify(result) {
+  $("verifyCard").hidden = !result;
+  if (!result) return;
+  let worst = "PASS";
+  const rows = [];
+  for (const [inst, checks] of Object.entries(result)) {
+    checks.forEach((c, k) => {
+      if (c.status === "FAIL" || (c.status === "WARN" && worst !== "FAIL")) worst = c.status;
+      rows.push(el("tr", {}, el("td", { textContent: k ? "" : inst }), el("td", { textContent: c.check }),
+        el("td", {}, el("span", { className: "badge " + c.status, textContent: c.status })),
+        el("td", { className: "wrap", textContent: c.detail })));
+    });
+  }
+  $("verifyRows").replaceChildren(...rows);
+  $("verifyVerdict").textContent = "verdict: " + worst;
+}
+
+function selectInst(id) {
+  S.inst = id; S.metrics = null; S.mapTime = null; S.node = null; S.nodeDetail = null; $("instView").hidden = false;
+  $("instTitle").textContent = `Instance ${id} · seed ${S.runInfo.instances[id].seed}`;
+  $("charts").replaceChildren();
+  refreshRun(); refreshInst();
+}
+
+async function refreshInst() {
+  if (!S.run || !S.inst) return;
+  S.metrics = await api(`/api/metrics?run=${encodeURIComponent(S.run)}&inst=${S.inst}`);
+  drawCharts(S.metrics);
+  drawMap();
+  refreshLog();
+}
+
+async function refreshLog() {
+  if (!S.run || !S.inst) return;
+  const q = `run=${encodeURIComponent(S.run)}` + (S.log === "orch" ? "" : `&inst=${S.inst}`);
+  const { text } = await api((S.log === "timeline" ? "/api/timeline?" : "/api/log?") + q);
+  const pre = $("logText"), atBottom = pre.scrollTop + pre.clientHeight >= pre.scrollHeight - 4;
+  pre.textContent = text || "(empty)";
+  if (atBottom && S.log !== "timeline") pre.scrollTop = pre.scrollHeight;
+}
+
+// ---------- charts: single-series small multiples + one stacked chart, sharing a crosshair
+const LOSS = [  // fixed slot per cause: hiding a zero series never repaints the others
+  { key: "NETEM_DROP_COUNT", name: "netem / isolation", color: "var(--c1)" },
+  { key: "MAC_ENQUEUE_DROP_COUNT", name: "MAC: not associated", color: "var(--c2)" },
+  { key: "RETRY_DROP_COUNT", name: "MAC: retry limit", color: "var(--c3)" },
+  { key: "QUEUE_DROP_COUNT", name: "MAC: queue overflow / expiry", color: "var(--c4)" },
+  { key: "STACK_DROP_COUNT", name: "IP stack", color: "var(--c5)" },
+];
+const CHARTS = [
+  { key: "active", title: "Active nodes", unit: "", d: 0 },
+  { key: "thr", title: "Throughput, Mbit/s", unit: " Mbit/s", d: 2 },
+  { key: "pdr", title: "PDR, %", unit: "%", d: 1 },
+  { key: "p95", title: "Latency p95, ms", unit: " ms", d: 2 },
+  { key: "hops", title: "Mean hop count", unit: "", d: 2, meshOnly: true },
+  { key: "loss", title: "Lost packets by cause, per second", unit: "", d: 0, stacked: true },
+];
+
+function niceTicks(max, n = 3) {
+  if (!(max > 0)) return [0, 1];
+  const raw = max / n, mag = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10].map(s => s * mag).find(s => s >= raw);
+  const ticks = []; for (let v = 0; v <= max + step * 1e-9; v += step) ticks.push(+v.toFixed(10));
+  if (ticks[ticks.length - 1] < max) ticks.push(ticks[ticks.length - 1] + step);
+  return ticks;
+}
+
+let chartState = null;
+function drawCharts(m) {
+  const s = m.series, recv = new Map(s.RECV_COUNT);
+  const mesh = S.runInfo && S.runInfo.topology === "mesh";
+  const lossByT = new Map();
+  for (const c of LOSS) for (const [t, v] of s[c.key] || []) {
+    if (!lossByT.has(t)) lossByT.set(t, {});
+    lossByT.get(t)[c.key] = v;
+  }
+  const causes = LOSS.filter(c => (s[c.key] || []).some(([, v]) => v > 0));
+  const data = {
+    active: s.ACTIVE_STAS,
+    thr: s.AGGREGATE_THROUGHPUT_MBPS,
+    pdr: s.SENT_COUNT.filter(([, v]) => v > 0).map(([t, v]) => [t, 100 * (recv.get(t) || 0) / v]),
+    p95: s.LATENCY_P95_MS,
+    hops: s.HOPS_MEAN,
+    loss: [...lossByT.entries()].sort((a, b) => a[0] - b[0]).map(([t, parts]) => [t, causes.reduce((sum, c) => sum + (parts[c.key] || 0), 0), parts]),
+  };
+  const duration = S.runInfo ? S.runInfo.duration : 60;
+  const charts = CHARTS.filter(c => !c.meshOnly || mesh);
+  const box = $("charts");
+  if (box.children.length !== charts.length) {
+    box.replaceChildren(...charts.map(c => el("div", { className: "chart" }, el("h3", { textContent: c.title }),
+      c.stacked ? el("div", { className: "legend" }) : "", svgEl("svg"), c.stacked ? el("div", { className: "scroll-x" }) : "")));
+  }
+  chartState = { duration, svgs: [] };
+
+  charts.forEach((c, idx) => {
+    const card = box.children[idx], svg = card.querySelector("svg");
+    const W = svg.clientWidth || 400, H = 150, L = 44, R = 8, T = 6, B = 20;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const pts = data[c.key] || [];
+    const ticks = niceTicks(Math.max(c.key === "pdr" ? 100 : 0, ...pts.map(p => p[1])));
+    const ymax = ticks[ticks.length - 1];
+    const x = (t) => L + (W - L - R) * t / duration, y = (v) => T + (H - T - B) * (1 - v / ymax);
+    const kids = [];
+    ticks.forEach(v => {
+      kids.push(svgEl("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: v === 0 ? "var(--border)" : "var(--grid)" }));
+      const lab = svgEl("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end" }); lab.textContent = fmt(v, 1); kids.push(lab);
+    });
+    niceTicks(duration, 5).filter(t => t <= duration).forEach(t => {
+      const lab = svgEl("text", { x: x(t), y: H - 4, "text-anchor": "middle" }); lab.textContent = t + " s"; kids.push(lab);
+    });
+    if (c.key === "active") m.events.forEach(([t]) => kids.push(svgEl("line", { x1: x(t), x2: x(t), y1: T, y2: H - B, stroke: "var(--event)", "stroke-dasharray": "2 3", "stroke-width": 1, opacity: .45 })));
+    if (c.stacked) {
+      // a row at time t covers (t-1, t]; 1px surface stroke gives the 2px gap between segments and bars
+      const bw = Math.max(1, x(1) - x(0));
+      for (const [t, , parts] of pts) {
+        let base = 0;
+        for (const cause of causes) {
+          const v = parts[cause.key] || 0;
+          if (!v) continue;
+          kids.push(svgEl("rect", { x: x(t - 1), width: bw, y: y(base + v), height: Math.max(0, y(base) - y(base + v)),
+            fill: cause.color, stroke: "var(--surface)", "stroke-width": 1 }));
+          base += v;
+        }
+      }
+      card.querySelector(".legend").replaceChildren(...(causes.length ? causes.map(cause => el("span", {}, el("i", { style: `background:${cause.color}` }), cause.name)) : [el("span", { textContent: "no losses" })]));
+      drawLossTable(card.querySelector(".scroll-x"), causes, s);
+    } else if (pts.length) {
+      kids.push(svgEl("polyline", { points: pts.map(([t, v]) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(" "),
+        fill: "none", stroke: "var(--series)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    }
+    if (!pts.length) { const e = svgEl("text", { x: W / 2, y: H / 2, "text-anchor": "middle" }); e.textContent = "no data"; kids.push(e); }
+    const hair = svgEl("line", { y1: T, y2: H - B, stroke: "var(--text-2)", "stroke-width": 1, visibility: "hidden" });
+    const dot = svgEl("circle", { r: 4, fill: "var(--series)", stroke: "var(--surface)", "stroke-width": 2, visibility: "hidden" });
+    const hit = svgEl("rect", { x: L, y: 0, width: Math.max(0, W - L - R), height: H, fill: "transparent" });
+    hit.addEventListener("pointermove", (ev) => {
+      const r = svg.getBoundingClientRect();
+      showCrosshair(((ev.clientX - r.left) * W / r.width - L) / (W - L - R) * duration, ev);
+    });
+    hit.addEventListener("pointerleave", hideCrosshair);
+    kids.push(hair, dot, hit);
+    svg.replaceChildren(...kids);
+    chartState.svgs.push({ c, x, y, hair, dot, pts, causes });
+  });
+}
+
+function drawLossTable(box, causes, s) {
+  const sent = s.SENT_COUNT.reduce((a, [, v]) => a + v, 0) || 1;
+  const rows = causes.map(c => {
+    const n = (s[c.key] || []).reduce((a, [, v]) => a + v, 0);
+    return el("tr", {}, el("td", {}, el("span", { className: "legend" }, el("span", {}, el("i", { style: `background:${c.color}` }), c.name))),
+      el("td", { className: "num", textContent: fmt(n, 0) }), el("td", { className: "num", textContent: (100 * n / sent).toFixed(2) + "% of sent" }));
+  });
+  box.replaceChildren(rows.length ? el("table", {}, el("tbody", {}, ...rows)) : "");
+}
+
+function nearest(pts, t) {
+  let best = null;
+  for (const p of pts) if (!best || Math.abs(p[0] - t) < Math.abs(best[0] - t)) best = p;
+  return best && Math.abs(best[0] - t) <= 1 ? best : null;
+}
+
+function showCrosshair(t, ev) {
+  const tip = $("tooltip");
+  const anchor = nearest(chartState.svgs.flatMap(s => s.pts), t);
+  if (!anchor) return hideCrosshair();
+  const t0 = anchor[0];
+  const lines = [el("div", { textContent: `t = ${fmt(t0, 1)} s` })];
+  chartState.svgs.forEach(({ c, x, y, hair, dot, pts, causes }) => {
+    const p = nearest(pts, t0);
+    hair.setAttribute("x1", x(t0)); hair.setAttribute("x2", x(t0)); hair.setAttribute("visibility", "visible");
+    if (c.stacked) {
+      dot.setAttribute("visibility", "hidden");
+      lines.push(el("div", {}, "Lost: ", el("b", { textContent: p ? fmt(p[1], 0) : "0" })));
+      if (p) causes.filter(cs => p[2][cs.key]).forEach(cs => lines.push(el("div", {}, el("i", { style: `background:${cs.color}` }), cs.name + ": ", el("b", { textContent: fmt(p[2][cs.key], 0) }))));
+      return;
+    }
+    if (p) { dot.setAttribute("cx", x(p[0])); dot.setAttribute("cy", y(p[1])); dot.setAttribute("visibility", "visible"); }
+    else dot.setAttribute("visibility", "hidden");
+    lines.push(el("div", {}, c.title.split(",")[0] + ": ", el("b", { textContent: p ? fmt(p[1], c.d) + c.unit : "–" })));
+  });
+  tip.replaceChildren(...lines);
+  placeTip(ev);
+  if (!$("mapCard").hidden) { S.mapTime = t0; drawMap(); }
+}
+function placeTip(ev) {
+  const tip = $("tooltip");
+  tip.style.display = "block";
+  tip.style.left = Math.min(ev.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px";
+  tip.style.top = Math.min(ev.clientY + 14, innerHeight - tip.offsetHeight - 8) + "px";
+}
+function hideCrosshair() {
+  $("tooltip").style.display = "none";
+  chartState && chartState.svgs.forEach(s => { s.hair.setAttribute("visibility", "hidden"); s.dot.setAttribute("visibility", "hidden"); });
+}
+
+// ---------- mesh topology map: positions, open peer links and node state at time t
+const CELL_COLORS = ["var(--c1)", "var(--c2)", "var(--c3)", "var(--c4)", "var(--c5)"];
+const cellColor = (c) => CELL_COLORS[c] || "var(--muted)";
+
+function topologyAt(m, t) {
+  const down = new Set();
+  for (const [et, a, , id] of m.events) if (et <= t) a === "NODE_DOWN" ? down.add(id) : down.delete(id);
+  const links = new Set();
+  for (const [lt, a, b, open] of m.links) {
+    if (lt > t) break;
+    const key = [a, b].sort((p, q) => p - q).join("-");
+    open ? links.add(key) : links.delete(key);
+  }
+  return { down, links };
+}
+
+function drawMap() {
+  const m = S.metrics;
+  const ids = m ? Object.keys(m.nodes) : [];
+  $("mapCard").hidden = !ids.length;
+  if (!ids.length) return;
+  const duration = S.runInfo.duration;
+  const slider = $("mapTime");
+  slider.max = duration;
+  if (S.mapTime == null) S.mapTime = Math.min(duration, Math.max(...m.series.SENT_COUNT.map(p => p[0]), 0));
+  slider.value = S.mapTime;
+  $("mapTimeLabel").textContent = fmt(S.mapTime, 1) + " s";
+
+  const svg = $("map"), W = svg.clientWidth || 600, H = svg.clientHeight || 380, pad = 26;
+  const xs = ids.map(i => m.nodes[i].x), ys = ids.map(i => m.nodes[i].y);
+  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+  const k = Math.min((W - 2 * pad) / Math.max(1, x1 - x0), (H - 2 * pad) / Math.max(1, y1 - y0));
+  const ox = (W - k * (x1 - x0)) / 2, oy = (H - k * (y1 - y0)) / 2;
+  const px = (id) => [ox + k * (m.nodes[id].x - x0), oy + k * (m.nodes[id].y - y0)];
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+  const { down, links } = topologyAt(m, S.mapTime);
+  const degree = {};
+  const kids = [];
+  for (const key of links) {
+    const [a, b] = key.split("-");
+    if (!m.nodes[a] || !m.nodes[b] || down.has(a) || down.has(b)) continue;
+    degree[a] = (degree[a] || 0) + 1; degree[b] = (degree[b] || 0) + 1;
+    const [ax, ay] = px(a), [bx, by] = px(b);
+    kids.push(svgEl("line", { x1: ax, y1: ay, x2: bx, y2: by, stroke: "var(--link)", "stroke-width": 1.5, opacity: .55 }));
+  }
+  const routers = ids.filter(i => m.nodes[i].type !== "GW").sort((a, b) => a - b);
+  const gws = ids.filter(i => m.nodes[i].type === "GW").sort((a, b) => a - b);
+  for (const id of [...routers, ...gws]) {
+    const n = m.nodes[id], [cx, cy] = px(id), isGw = n.type === "GW", isDown = down.has(id);
+    const color = cellColor(n.cell), label = isGw ? `ap:${gws.indexOf(id)}` : `sta:${routers.indexOf(id)}`;
+    const shape = isGw
+      ? svgEl("rect", { x: cx - 8, y: cy - 8, width: 16, height: 16, rx: 2 })
+      : svgEl("circle", { cx, cy, r: 6.5 });
+    shape.setAttribute("class", "node");
+    shape.setAttribute("fill", isDown ? "var(--surface)" : color);
+    shape.setAttribute("stroke", isDown ? "var(--text-2)" : "var(--surface)");
+    shape.setAttribute("stroke-width", isDown ? 1.5 : 2);
+    if (isDown) shape.setAttribute("stroke-dasharray", "2 2");
+    shape.addEventListener("pointermove", (ev) => {
+      $("tooltip").replaceChildren(el("div", {}, el("b", { textContent: label }), ` · node ${id}`),
+        el("div", { textContent: isGw ? `gateway of cell ${n.cell}` : `reports to ap:${n.cell}` }),
+        el("div", { textContent: `${isDown ? "down" : "up"} · ${degree[id] || 0} peer links` }));
+      placeTip(ev);
+    });
+    shape.addEventListener("pointerleave", () => { $("tooltip").style.display = "none"; });
+    shape.addEventListener("click", () => selectNode(id, label));
+    if (id === S.node) { shape.setAttribute("stroke", "var(--text)"); shape.setAttribute("stroke-width", 2.5); }
+    kids.push(shape);
+    if (isGw) { const t = svgEl("text", { x: cx + 12, y: cy + 4 }); t.textContent = label; kids.push(t); }
+  }
+  svg.replaceChildren(...kids);
+  const cells = [...new Set(gws.map(g => m.nodes[g].cell))];
+  $("mapLegend").replaceChildren(
+    ...cells.map(c => el("span", {}, el("i", { className: "round", style: `background:${cellColor(c)}` }), `cell of ap:${c}`)),
+    el("span", {}, el("i", { className: "square", style: "background:var(--text-2)" }), "gateway"),
+    el("span", {}, el("i", { className: "hollow" }), "node down"),
+    el("span", { textContent: `${Object.values(degree).reduce((a, d) => a + d, 0) / 2} links open` }));
+  drawNode();
+}
+$("mapTime").oninput = () => { S.mapTime = +$("mapTime").value; drawMap(); };
+
+// ---------- node detail: state at the selected time + its own series over the run
+async function selectNode(id, label) {
+  S.node = id; S.nodeLabel = label;
+  S.nodeDetail = await api(`/api/node?run=${encodeURIComponent(S.run)}&inst=${S.inst}&node=${id}`);
+  drawMap();
+}
+
+function valueAt(pts, sec) {
+  const p = (pts || []).find(([t]) => Math.round(t) === sec);
+  return p ? p[1] : 0;
+}
+
+function drawNode() {
+  const d = S.nodeDetail, m = S.metrics;
+  $("nodePanel").hidden = !d || !m || !m.nodes[S.node];
+  if ($("nodePanel").hidden) return;
+  const n = m.nodes[S.node], t = S.mapTime, sec = Math.ceil(t), s = d.series;
+  const { down, links } = topologyAt(m, t);
+  const peers = [...links].filter(k => k.split("-").includes(S.node) && !k.split("-").some(x => down.has(x))).length;
+  const sent = valueAt(s.NODE_SENT, sec), recv = valueAt(s.NODE_RECV, sec);
+  $("nodeTitle").textContent = `${S.nodeLabel} · node ${S.node} · ${n.type === "GW" ? "gateway" : "router"} · cell ap:${n.cell} · at t = ${fmt(t, 1)} s`;
+  const tiles = [
+    ["State", down.has(S.node) ? "down" : "up"],
+    ["Peer links", peers],
+    ["Sent, pkt/s", fmt(sent, 0)],
+    ["Delivered, pkt/s", fmt(recv, 0)],
+    ["PDR", sent ? (100 * recv / sent).toFixed(1) + "%" : "–"],
+    ["Latency mean", s.NODE_LAT_MS ? fmt(valueAt(s.NODE_LAT_MS, sec), 1) + " ms" : "–"],
+    ["Hops to gateway", s.NODE_HOPS ? fmt(valueAt(s.NODE_HOPS, sec), 2) : "–"],
+    ["Relayed for others, pkt/s", fmt(valueAt(s.NODE_FWD, sec), 0)],
+    ["Lost (own), pkt/s", fmt(valueAt(s.NODE_DROP, sec), 0)],
+  ];
+  $("nodeTiles").replaceChildren(...tiles.map(([k, v]) => el("div", { className: "tile" }, el("div", { className: "k", textContent: k }), el("div", { className: "v", textContent: String(v) }))));
+  const recvBy = new Map((s.NODE_RECV || []).map(([x, v]) => [Math.round(x), v]));
+  const minis = [
+    { title: "PDR of this node, %", unit: "%", d: 1, pts: (s.NODE_SENT || []).filter(([, v]) => v > 0).map(([x, v]) => [x, 100 * (recvBy.get(Math.round(x)) || 0) / v]), floor: 100 },
+    { title: "Mean latency, ms", unit: " ms", d: 1, pts: s.NODE_LAT_MS || [] },
+    { title: "Relayed for others, pkt/s", unit: " pkt/s", d: 0, pts: s.NODE_FWD || [] },
+  ];
+  // down intervals from this node's own events
+  const bands = []; let since = null;
+  for (const [et, a] of d.events) { if (a === "NODE_DOWN" && since == null) since = et; if (a === "NODE_UP" && since != null) { bands.push([since, et]); since = null; } }
+  if (since != null) bands.push([since, S.runInfo.duration]);
+  const box = $("nodeCharts");
+  if (box.children.length !== minis.length) box.replaceChildren(...minis.map(c => el("div", { className: "mini" }, el("h4", { textContent: c.title }), svgEl("svg"))));
+  minis.forEach((c, i) => drawMini(box.children[i].querySelector("svg"), c, bands));
+}
+
+function drawMini(svg, c, bands) {
+  const duration = S.runInfo.duration, W = svg.clientWidth || 300, H = 110, L = 40, R = 6, T = 4, B = 18;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const ticks = niceTicks(Math.max(c.floor || 0, ...c.pts.map(p => p[1])), 2), ymax = ticks.at(-1);
+  const x = (t) => L + (W - L - R) * t / duration, y = (v) => T + (H - T - B) * (1 - v / ymax);
+  const kids = bands.map(([a, b]) => svgEl("rect", { x: x(a), y: T, width: Math.max(1, x(b) - x(a)), height: H - T - B, fill: "var(--text-2)", opacity: 0.12 }));
+  ticks.forEach(v => {
+    kids.push(svgEl("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: v === 0 ? "var(--border)" : "var(--grid)" }));
+    const lab = svgEl("text", { x: L - 5, y: y(v) + 4, "text-anchor": "end" }); lab.textContent = fmt(v, 1); kids.push(lab);
+  });
+  niceTicks(duration, 4).filter(t => t <= duration).forEach(t => { const lab = svgEl("text", { x: x(t), y: H - 3, "text-anchor": "middle" }); lab.textContent = t + " s"; kids.push(lab); });
+  if (c.pts.length) kids.push(svgEl("polyline", { points: c.pts.map(([t, v]) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(" "), fill: "none", stroke: "var(--series)", "stroke-width": 2, "stroke-linejoin": "round" }));
+  else { const e = svgEl("text", { x: W / 2, y: H / 2, "text-anchor": "middle" }); e.textContent = "no data"; kids.push(e); }
+  kids.push(svgEl("line", { x1: x(S.mapTime), x2: x(S.mapTime), y1: T, y2: H - B, stroke: "var(--text-2)", "stroke-dasharray": "3 3" }));
+  const hit = svgEl("rect", { x: L, y: 0, width: Math.max(0, W - L - R), height: H, fill: "transparent" });
+  hit.addEventListener("pointermove", (ev) => {
+    const r = svg.getBoundingClientRect(), t = ((ev.clientX - r.left) * W / r.width - L) / (W - L - R) * duration;
+    const p = nearest(c.pts, t);
+    $("tooltip").replaceChildren(el("div", { textContent: `t = ${fmt(p ? p[0] : t, 1)} s` }), el("div", {}, c.title.split(",")[0] + ": ", el("b", { textContent: p ? fmt(p[1], c.d) + c.unit : "–" })));
+    placeTip(ev);
+  });
+  hit.addEventListener("pointerleave", () => { $("tooltip").style.display = "none"; });
+  hit.addEventListener("click", (ev) => { const r = svg.getBoundingClientRect(); S.mapTime = Math.max(0, Math.min(duration, ((ev.clientX - r.left) * W / r.width - L) / (W - L - R) * duration)); drawMap(); });
+  kids.push(hit);
+  svg.replaceChildren(...kids);
+}
+$("nodeCtl").onclick = () => {
+  const down = S.metrics && topologyAt(S.metrics, S.mapTime).down.has(S.node);
+  $("ctlCmd").value = `NODE ${S.nodeLabel} ${down ? "up" : "down"}`; $("ctlCmd").focus();
+};
+
+// ---------- actions
+$("startBtn").onclick = async () => {
+  try {
+    const { name } = await api("/api/start", { name: $("runName").value.trim(), config: $("runConfig").value });
+    flash($("headMsg"), "Started " + name, "ok"); $("runName").value = "";
+    setTimeout(() => selectRun(name), 600);
+  } catch (e) { flash($("headMsg"), e.message, "err"); }
+};
+$("stopBtn").onclick = async () => {
+  try { await api("/api/stop", { run: S.run }); flash($("headMsg"), "Stopping " + S.run + "…"); }
+  catch (e) { flash($("headMsg"), e.message, "err"); }
+};
+$("verifyBtn").onclick = async () => {
+  $("verifyBtn").disabled = true;
+  try { showVerify(await api("/api/verify", { run: S.run })); flash($("headMsg"), "Verification finished", "ok"); }
+  catch (e) { flash($("headMsg"), e.message, "err"); }
+  finally { $("verifyBtn").disabled = false; }
+};
+async function sendCtl(cmd) {
+  try {
+    const { queued } = await api("/api/ctl", { run: S.run, inst: S.inst, command: cmd });
+    flash($("ctlMsg"), "Queued: " + queued, "ok");
+  } catch (e) { flash($("ctlMsg"), e.message, "err"); }
+}
+$("ctlBtn").onclick = () => sendCtl($("ctlCmd").value);
+$("ctlCmd").onkeydown = (e) => { if (e.key === "Enter") sendCtl($("ctlCmd").value); };
+["NODE sta:0 down", "NODE sta:0 up", "NODE ap:0 restart 3", "NETEM cell:0 50 10 0.1", "NETEM cell:0 0 0 0",
+ "ISOLATE cell:1 on", "ISOLATE cell:1 off", "BURST sta:* 200 100", "AGENT chaos off", "MODE controlled"]
+  .forEach(cmd => $("chips").append(el("button", { textContent: cmd, title: "Put into the command field", onclick: () => { $("ctlCmd").value = cmd; $("ctlCmd").focus(); } })));
+
+async function loadConfig(force) {
+  const name = $("editConfig").value;
+  const { path, text } = await api("/api/config?name=" + encodeURIComponent(name));
+  $("configPath").textContent = path;
+  if (force || !$("config").dataset.dirty) { $("config").value = text; delete $("config").dataset.dirty; flash($("configMsg"), ""); }
+}
+$("editConfig").onchange = () => {
+  if ($("config").dataset.dirty && !confirm("Discard unsaved changes?")) return;
+  loadConfig(true);
+};
+$("config").oninput = () => { $("config").dataset.dirty = "1"; flash($("configMsg"), "unsaved changes"); };
+$("saveBtn").onclick = async () => {
+  try {
+    await api("/api/config", { name: $("editConfig").value, text: $("config").value });
+    delete $("config").dataset.dirty; flash($("configMsg"), "Saved", "ok");
+  } catch (e) { flash($("configMsg"), e.message, "err"); }
+};
+$("config").onkeydown = (e) => {
+  if (e.key === "Tab") { e.preventDefault(); document.execCommand("insertText", false, "  "); }
+  if ((e.metaKey || e.ctrlKey) && e.key === "s") { e.preventDefault(); $("saveBtn").click(); }
+};
+
+// ---------- polling
+async function tick() {
+  try {
+    await refreshRuns();
+    if (S.run) await refreshRun();
+    const live = S.runInfo && ["running", "stopping"].includes(S.runInfo.state);
+    if (S.inst && (live || !S.metrics)) await refreshInst();
+  } catch (e) { flash($("headMsg"), "server unreachable: " + e.message, "err"); }
+  setTimeout(tick, 2000);
+}
+addEventListener("resize", () => { if (S.metrics) { drawCharts(S.metrics); drawMap(); } });
+loadConfigList().then(tick);
+</script>
+</body>
+</html>

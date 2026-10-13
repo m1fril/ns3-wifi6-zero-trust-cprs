@@ -1,0 +1,82 @@
+{
+  "sim": {
+    "binary": "/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/build/scratch/network-project/ns3.46.1-network-project-main-optimized",
+    "duration": 300,
+    "args": {
+      "topology": "mesh",
+      "meshLayout": "grid",
+      "meshSpacing": 30,
+      "roomSize": 150,
+      "nAps": 2,
+      "nStas": 23,
+      "pktInterval": 20000,
+      "pSize": 500,
+      "compactMetrics": 1,
+      "ns3::dot11s::PeerLink::MaxBeaconLoss": 10,
+      "ns3::dot11s::PeerLink::MaxPacketFailure": 10,
+      "ns3::dot11s::PeerLink::RetryTimeout": "+100ms",
+      "ns3::dot11s::PeerLink::ConfirmTimeout": "+100ms",
+      "ns3::dot11s::PeerLink::HoldingTimeout": "+100ms",
+      "ns3::dot11s::PeerLink::MaxRetries": 3
+    }
+  },
+  "run": {
+    "name": "campaign-density-linux",
+    "output_dir": "/Users/mykhail/Documents/diplom/ns-allinone-3.46.1/ns-3.46.1/sim-orchestrator/runs",
+    "replicas": 120,
+    "max_parallel": 9,
+    "base_seed": 1,
+    "max_restarts": 1,
+    "grace_period_s": 10
+  },
+  "churn": {},
+  "traffic": {
+    "profiles": {
+      "sensor": {
+        "weight": 3,
+        "size": {
+          "dist": "uniform",
+          "min": 64,
+          "max": 256
+        },
+        "interval_us": {
+          "dist": "exp",
+          "mean": 100000,
+          "max": 1000000
+        }
+      },
+      "telemetry": {
+        "weight": 2,
+        "size": {
+          "dist": "normal",
+          "mean": 512,
+          "std": 128,
+          "min": 64,
+          "max": 1024
+        },
+        "interval_us": {
+          "dist": "uniform",
+          "min": 20000,
+          "max": 60000
+        }
+      },
+      "camera": {
+        "weight": 1,
+        "size": {
+          "dist": "const",
+          "value": 1200
+        },
+        "interval_us": {
+          "dist": "const",
+          "value": 20000
+        }
+      }
+    },
+    "bursts": {
+      "rate_per_s": 0.0
+    },
+    "profile_swap_rate_per_s": 0.0
+  },
+  "network": {},
+  "script": []
+}

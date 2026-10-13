@@ -62,3 +62,10 @@ To run a stress-test scenario with custom parameters:
 - **CSV Logs**: Generates `Bianchi-*.csv` containing time-stamped events (LATENCY, RECV, THROUGHPUT, JOINED, etc.) prefixed with NodeID and NodeType.
 - **Visualizer**: If `--visual=true` is used, a NetSimulyzer JSON file will be generated for 3D playback.
 - **Console**: Real-time agent transition logs (e.g., `[DIRECTOR] Transition to Linear_Ramp_To_Failure`).
+
+## 🎛 Orchestrator & Load Generator
+
+`sim-orchestrator/` launches and supervises many instances, generates node churn, traffic profiles,
+bursts and network impairments from `config.yaml`, and supports live control. `--topology=mesh` builds an
+802.11s (HWMP) multi-hop mesh instead of the AP/STA cells (`config.mesh.yaml`). `verify.py` checks a run's
+output against its input; `ui.py` is a local web UI. See `sim-orchestrator/README.md`.

@@ -2,17 +2,28 @@
 #define AGENT_ORCHESTRATOR_H
 
 #include "agent-interface.h"
-#include <vector>
+#include <csignal>
 #include <memory>
+#include <string>
+#include <vector>
 
 namespace ns3 {
 
+// Set from SIGINT/SIGTERM handlers; the next heartbeat stops the simulator cleanly.
+extern volatile std::sig_atomic_t g_stopRequested;
+
 class AgentOrchestrator {
 public:
-    void RegisterAgent(std::shared_ptr<IAgent> agent);
+    void RegisterAgent(const std::string& name, std::shared_ptr<IAgent> agent);
+    bool SetAgentEnabled(const std::string& name, bool enabled);  // false if unknown
     void ExecuteHeartbeat();
 private:
-    std::vector<std::shared_ptr<IAgent>> m_agents;
+    struct Entry {
+        std::string name;
+        std::shared_ptr<IAgent> agent;
+        bool enabled;
+    };
+    std::vector<Entry> m_agents;
 };
 
 } // namespace ns3

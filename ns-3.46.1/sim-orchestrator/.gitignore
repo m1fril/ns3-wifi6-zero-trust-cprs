@@ -1,0 +1,9 @@
+# Raw run output (~0.9 GB of per-run CSV) stays local; per-series summaries are tracked.
+runs/**
+!runs/**/
+!runs/campaign-*/results.csv
+!runs/campaign-*/config.resolved.json
+!runs/campaign-*/summary.json
+!runs/campaign-*/verify.json
+!runs/warehouse/results.csv
+__pycache__/

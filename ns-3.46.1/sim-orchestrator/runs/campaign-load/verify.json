@@ -1,0 +1,2702 @@
+{
+  "000": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,128 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 20 = mac_retry 14, hwmp 5; unexplained +1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.94%, mean hops 2.48, peer-link closes 0"
+    }
+  ],
+  "001": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,439 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 25 = mac_retry 6, hwmp 17; unexplained +2 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.93%, mean hops 2.44, peer-link closes 0"
+    }
+  ],
+  "002": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,146 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 247 = mac_retry 12, hwmp 236; unexplained -1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.28%, mean hops 2.43, peer-link closes 0"
+    }
+  ],
+  "003": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,320 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 397 = mac_retry 12, hwmp 388; unexplained -3 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.84%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "004": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,885 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,200 = mac_retry 54, hwmp 1,145; unexplained +1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.26%, mean hops 2.50, peer-link closes 2"
+    }
+  ],
+  "005": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,376 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 36 = mac_retry 31, hwmp 8; unexplained -3 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.95%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "006": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,955 (+0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 873 = mac_retry 32, hwmp 846; unexplained -5 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.73%, mean hops 2.46, peer-link closes 0"
+    }
+  ],
+  "007": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,490 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 346 = mac_retry 39, hwmp 310; unexplained -3 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.49%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "008": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,380 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 167 = mac_retry 81, hwmp 92; unexplained -6 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.88%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "009": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,036 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 969 = mac_retry 120, hwmp 867; unexplained -18 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.29%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "010": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,934 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 576 = mac_retry 106, hwmp 479; unexplained -9 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.58%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "011": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,467 (+0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 411 = mac_retry 162, hwmp 269; unexplained -20 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.70%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "012": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 343,287 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,992 = mac_retry 878, hwmp 3,271; unexplained -157 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.84%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "013": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,656 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 839 = mac_retry 963, hwmp 85; unexplained -209 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.76%, mean hops 2.55, peer-link closes 0"
+    }
+  ],
+  "014": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 343,059 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,554 = mac_retry 939, hwmp 3,798; unexplained -183 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.67%, mean hops 2.56, peer-link closes 0"
+    }
+  ],
+  "015": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,594 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,768 = mac_retry 982, hwmp 2,986; unexplained -200 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.90%, mean hops 2.53, peer-link closes 0"
+    }
+  ],
+  "016": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,678 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 51,585 = mac_retry 31,040, mac_queue 7,363, hwmp 15,937, peer_link_filter 19; unexplained -2,774 (0.40%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.48%, mean hops 2.42, peer-link closes 182"
+    }
+  ],
+  "017": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,637 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 53,463 = mac_retry 34,127, mac_queue 5,263, hwmp 18,084, peer_link_filter 8; unexplained -4,019 (0.59%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.20%, mean hops 2.46, peer-link closes 130"
+    }
+  ],
+  "018": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 683,997 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 54,760 = mac_retry 32,477, mac_queue 8,636, hwmp 15,237, peer_link_filter 38; unexplained -1,628 (0.24%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 91.99%, mean hops 2.44, peer-link closes 201"
+    }
+  ],
+  "019": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 683,693 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 52,607 = mac_retry 32,644, mac_queue 5,146, hwmp 18,240, peer_link_filter 12; unexplained -3,435 (0.50%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.31%, mean hops 2.45, peer-link closes 122"
+    }
+  ],
+  "020": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,297 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 353 = mac_retry 48, hwmp 307; unexplained -2 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.97%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "021": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,046 (-0.7%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 53 = mac_retry 31, hwmp 23; unexplained -1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.84%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "022": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,079 (-0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 333 = mac_retry 34, hwmp 303; unexplained -4 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.02%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "023": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,074 (-0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 799 = mac_retry 41, hwmp 762; unexplained -4 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.66%, mean hops 2.52, peer-link closes 0"
+    }
+  ],
+  "024": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,661 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 287 = mac_retry 73, hwmp 218; unexplained -4 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.58%, mean hops 2.53, peer-link closes 0"
+    }
+  ],
+  "025": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,703 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 535 = mac_retry 76, hwmp 462; unexplained -3 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.22%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "026": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,512 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 454 = mac_retry 104, hwmp 363; unexplained -13 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.34%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "027": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,695 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 74 = mac_retry 61, hwmp 15; unexplained -2 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.89%, mean hops 2.46, peer-link closes 0"
+    }
+  ],
+  "028": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,111 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 363 = mac_retry 349, hwmp 38; unexplained -24 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.74%, mean hops 2.54, peer-link closes 0"
+    }
+  ],
+  "029": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,492 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,557 = mac_retry 341, hwmp 1,242; unexplained -26 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.86%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "030": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,595 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,978 = mac_retry 360, hwmp 1,646; unexplained -28 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.55%, mean hops 2.55, peer-link closes 0"
+    }
+  ],
+  "031": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,585 (+0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 301 = mac_retry 303, hwmp 28; unexplained -30 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.78%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "032": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,621 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 13,943 = mac_retry 12,287, mac_queue 49, hwmp 3,036, peer_link_filter 1; unexplained -1,430 (0.42%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.93%, mean hops 2.49, peer-link closes 4"
+    }
+  ],
+  "033": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,734 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 15,205 = mac_retry 14,176, mac_queue 357, hwmp 2,119, peer_link_filter 1; unexplained -1,448 (0.42%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.56%, mean hops 2.52, peer-link closes 8"
+    }
+  ],
+  "034": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,129 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 13,329 = mac_retry 12,665, mac_queue 228, hwmp 1,955; unexplained -1,519 (0.44%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.10%, mean hops 2.49, peer-link closes 2"
+    }
+  ],
+  "035": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 343,555 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 18,183 = mac_retry 14,418, mac_queue 153, hwmp 5,215; unexplained -1,603 (0.47%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.71%, mean hops 2.53, peer-link closes 6"
+    }
+  ],
+  "036": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 686,829 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 333,097 = mac_retry 86,909, mac_queue 114,538, hwmp 94,446, peer_link_filter 669; unexplained +36,535 (5.32%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 51.50%, mean hops 1.84, peer-link closes 3103"
+    }
+  ],
+  "037": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,633 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 343,929 = mac_retry 92,817, mac_queue 133,830, hwmp 78,218, peer_link_filter 856; unexplained +38,208 (5.57%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 49.84%, mean hops 1.87, peer-link closes 3616"
+    }
+  ],
+  "038": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,850 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 401,223 = mac_retry 83,445, mac_queue 132,302, hwmp 137,821, peer_link_filter 917; unexplained +46,738 (6.81%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 41.50%, mean hops 1.83, peer-link closes 3654"
+    }
+  ],
+  "039": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 684,493 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 363,364 = mac_retry 90,238, mac_queue 138,437, hwmp 93,664, peer_link_filter 982; unexplained +40,043 (5.85%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 46.91%, mean hops 1.88, peer-link closes 3842"
+    }
+  ],
+  "040": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,099 (-0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 256 = mac_retry 77, hwmp 177; unexplained +2 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.25%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "041": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,454 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 547 = mac_retry 80, hwmp 466; unexplained +1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.41%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "042": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,430 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 633 = mac_retry 96, hwmp 540; unexplained -3 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.16%, mean hops 2.51, peer-link closes 0"
+    }
+  ],
+  "043": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,427 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 166 = mac_retry 92, hwmp 78; unexplained -4 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.52%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "044": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,487 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 472 = mac_retry 201, hwmp 316; unexplained -45 (0.07%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.31%, mean hops 2.53, peer-link closes 0"
+    }
+  ],
+  "045": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,623 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 636 = mac_retry 242, hwmp 410; unexplained -16 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.07%, mean hops 2.45, peer-link closes 0"
+    }
+  ],
+  "046": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 69,046 (+0.7%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 677 = mac_retry 203, hwmp 480; unexplained -6 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.02%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "047": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,312 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,509 = mac_retry 250, hwmp 1,271; unexplained -12 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.79%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "048": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,198 (-0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,025 = mac_retry 1,709, hwmp 1,438; unexplained -122 (0.09%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.78%, mean hops 2.62, peer-link closes 0"
+    }
+  ],
+  "049": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,470 (+0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,708 = mac_retry 1,585, hwmp 1,232; unexplained -109 (0.08%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.03%, mean hops 2.53, peer-link closes 0"
+    }
+  ],
+  "050": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,576 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,219 = mac_retry 1,655, hwmp 2,698; unexplained -134 (0.10%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.91%, mean hops 2.54, peer-link closes 0"
+    }
+  ],
+  "051": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,360 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,488 = mac_retry 1,548, hwmp 51; unexplained -111 (0.08%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.92%, mean hops 2.54, peer-link closes 0"
+    }
+  ],
+  "052": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 341,762 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 97,054 = mac_retry 77,308, mac_queue 11,775, hwmp 9,675, peer_link_filter 36; unexplained -1,740 (0.51%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 71.60%, mean hops 2.24, peer-link closes 278"
+    }
+  ],
+  "053": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 343,977 (+0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 95,774 = mac_retry 77,084, mac_queue 10,023, hwmp 10,680, peer_link_filter 23; unexplained -2,036 (0.59%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 72.16%, mean hops 2.22, peer-link closes 250"
+    }
+  ],
+  "054": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 341,783 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 85,735 = mac_retry 71,446, mac_queue 7,687, hwmp 8,639, peer_link_filter 21; unexplained -2,058 (0.60%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 74.92%, mean hops 2.24, peer-link closes 206"
+    }
+  ],
+  "055": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,603 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 94,419 = mac_retry 74,937, mac_queue 11,431, hwmp 9,767, peer_link_filter 23; unexplained -1,739 (0.51%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 72.44%, mean hops 2.23, peer-link closes 230"
+    }
+  ],
+  "056": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 683,975 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 470,784 = mac_retry 77,102, mac_queue 206,522, hwmp 140,076, peer_link_filter 2,306; unexplained +44,778 (6.55%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 31.17%, mean hops 1.53, peer-link closes 6731"
+    }
+  ],
+  "057": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,679 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 462,329 = mac_retry 77,180, mac_queue 215,265, hwmp 123,523, peer_link_filter 2,427; unexplained +43,934 (6.41%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 32.57%, mean hops 1.55, peer-link closes 6901"
+    }
+  ],
+  "058": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 686,496 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 460,232 = mac_retry 77,326, mac_queue 210,991, hwmp 125,284, peer_link_filter 2,308; unexplained +44,323 (6.46%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 32.96%, mean hops 1.56, peer-link closes 6663"
+    }
+  ],
+  "059": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 684,040 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 452,108 = mac_retry 77,021, mac_queue 210,744, hwmp 118,302, peer_link_filter 2,365; unexplained +43,676 (6.39%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 33.91%, mean hops 1.55, peer-link closes 6836"
+    }
+  ],
+  "060": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 33,924 (-1.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 393 = mac_retry 243, hwmp 155; unexplained -5 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.84%, mean hops 2.50, peer-link closes 0"
+    }
+  ],
+  "061": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,225 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 550 = mac_retry 289, hwmp 271; unexplained -10 (0.03%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.39%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "062": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,055 (-0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 310 = mac_retry 229, hwmp 80; unexplained +1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.09%, mean hops 2.51, peer-link closes 0"
+    }
+  ],
+  "063": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,243 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 509 = mac_retry 271, hwmp 244; unexplained -6 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.51%, mean hops 2.51, peer-link closes 0"
+    }
+  ],
+  "064": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,545 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,028 = mac_retry 1,166, hwmp 908; unexplained -46 (0.07%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.04%, mean hops 2.53, peer-link closes 0"
+    }
+  ],
+  "065": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,690 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,960 = mac_retry 1,534, hwmp 480; unexplained -54 (0.08%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.15%, mean hops 2.52, peer-link closes 0"
+    }
+  ],
+  "066": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,270 (-0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,958 = mac_retry 1,541, hwmp 482; unexplained -65 (0.10%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.13%, mean hops 2.59, peer-link closes 0"
+    }
+  ],
+  "067": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,952 (+0.6%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,246 = mac_retry 1,278, hwmp 29; unexplained -61 (0.09%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.19%, mean hops 2.48, peer-link closes 0"
+    }
+  ],
+  "068": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,062 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 19,908 = mac_retry 19,085, hwmp 1,521; unexplained -698 (0.51%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 85.48%, mean hops 2.43, peer-link closes 0"
+    }
+  ],
+  "069": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,586 (+0.4%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 20,312 = mac_retry 19,100, hwmp 1,840; unexplained -628 (0.46%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 85.24%, mean hops 2.51, peer-link closes 0"
+    }
+  ],
+  "070": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,628 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 20,146 = mac_retry 19,111, mac_queue 1, hwmp 1,656; unexplained -622 (0.46%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 85.25%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "071": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,971 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 19,937 = mac_retry 18,436, hwmp 2,094; unexplained -593 (0.43%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 85.44%, mean hops 2.46, peer-link closes 0"
+    }
+  ],
+  "072": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,434 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 183,649 = mac_retry 61,786, mac_queue 65,171, hwmp 47,072, peer_link_filter 626; unexplained +8,994 (2.63%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 46.37%, mean hops 1.91, peer-link closes 2530"
+    }
+  ],
+  "073": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 341,733 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 171,904 = mac_retry 62,522, mac_queue 63,805, hwmp 37,812, peer_link_filter 432; unexplained +7,333 (2.15%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 49.70%, mean hops 1.93, peer-link closes 2475"
+    }
+  ],
+  "074": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 343,283 (+0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 182,347 = mac_retry 61,531, mac_queue 67,300, hwmp 44,568, peer_link_filter 591; unexplained +8,357 (2.43%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 46.88%, mean hops 1.91, peer-link closes 2624"
+    }
+  ],
+  "075": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,144 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 177,538 = mac_retry 61,959, mac_queue 62,849, hwmp 44,844, peer_link_filter 515; unexplained +7,371 (2.15%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 48.11%, mean hops 1.90, peer-link closes 2422"
+    }
+  ],
+  "076": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,458 (+0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 490,164 = mac_retry 47,070, mac_queue 285,572, hwmp 107,495, peer_link_filter 4,294; unexplained +45,733 (6.67%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 28.49%, mean hops 1.41, peer-link closes 11479"
+    }
+  ],
+  "077": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 684,435 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 493,649 = mac_retry 47,260, mac_queue 275,532, hwmp 121,514, peer_link_filter 4,189; unexplained +45,154 (6.60%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 27.87%, mean hops 1.40, peer-link closes 11098"
+    }
+  ],
+  "078": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,265 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 487,974 = mac_retry 47,503, mac_queue 276,581, hwmp 116,080, peer_link_filter 4,158; unexplained +43,652 (6.37%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 28.79%, mean hops 1.41, peer-link closes 11224"
+    }
+  ],
+  "079": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 686,271 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 489,999 = mac_retry 47,147, mac_queue 279,803, hwmp 112,331, peer_link_filter 4,207; unexplained +46,511 (6.78%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 28.60%, mean hops 1.42, peer-link closes 11314"
+    }
+  ],
+  "080": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,513 (+0.7%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 924 = mac_retry 584, hwmp 347; unexplained -7 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.32%, mean hops 2.54, peer-link closes 0"
+    }
+  ],
+  "081": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,234 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 584 = mac_retry 564, hwmp 23; unexplained -3 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.29%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "082": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,207 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 912 = mac_retry 569, hwmp 359; unexplained -16 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.33%, mean hops 2.54, peer-link closes 0"
+    }
+  ],
+  "083": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 34,270, measured 34,363 (+0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,061 = mac_retry 579, hwmp 470; unexplained +12 (0.03%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.91%, mean hops 2.52, peer-link closes 0"
+    }
+  ],
+  "084": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,503 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,612 = mac_retry 4,348, hwmp 344; unexplained -80 (0.12%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.27%, mean hops 2.59, peer-link closes 0"
+    }
+  ],
+  "085": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,867 (+0.5%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 5,340 = mac_retry 4,528, hwmp 901; unexplained -89 (0.13%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.25%, mean hops 2.52, peer-link closes 0"
+    }
+  ],
+  "086": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,735 (+0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,536 = mac_retry 4,193, hwmp 432; unexplained -89 (0.13%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.40%, mean hops 2.47, peer-link closes 0"
+    }
+  ],
+  "087": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 68,540, measured 68,777 (+0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,638 = mac_retry 4,387, hwmp 317; unexplained -66 (0.10%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.26%, mean hops 2.51, peer-link closes 0"
+    }
+  ],
+  "088": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,674 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 43,016 = mac_retry 42,449, mac_queue 715, hwmp 962; unexplained -1,110 (0.81%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 68.53%, mean hops 2.31, peer-link closes 36"
+    }
+  ],
+  "089": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,165 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 41,477 = mac_retry 41,135, mac_queue 726, hwmp 635, peer_link_filter 5; unexplained -1,024 (0.75%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.76%, mean hops 2.28, peer-link closes 60"
+    }
+  ],
+  "090": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 137,173 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 43,405 = mac_retry 42,397, mac_queue 842, hwmp 1,438, peer_link_filter 3; unexplained -1,275 (0.93%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 68.36%, mean hops 2.27, peer-link closes 60"
+    }
+  ],
+  "091": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,080, measured 136,845 (-0.2%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 43,815 = mac_retry 40,551, mac_queue 898, hwmp 3,208, peer_link_filter 5; unexplained -847 (0.62%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 67.98%, mean hops 2.29, peer-link closes 66"
+    }
+  ],
+  "092": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,923 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 212,113 = mac_retry 43,730, mac_queue 97,367, hwmp 58,159, peer_link_filter 1,278; unexplained +11,579 (3.38%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 38.15%, mean hops 1.71, peer-link closes 4507"
+    }
+  ],
+  "093": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,356 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 195,412 = mac_retry 44,883, mac_queue 104,567, hwmp 32,430, peer_link_filter 1,390; unexplained +12,142 (3.55%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 42.92%, mean hops 1.79, peer-link closes 4861"
+    }
+  ],
+  "094": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 342,973 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 200,528 = mac_retry 44,205, mac_queue 96,799, hwmp 47,127, peer_link_filter 1,216; unexplained +11,181 (3.26%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 41.53%, mean hops 1.74, peer-link closes 4432"
+    }
+  ],
+  "095": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 342,700, measured 341,599 (-0.3%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 206,519 = mac_retry 44,215, mac_queue 102,061, hwmp 46,991, peer_link_filter 1,403; unexplained +11,849 (3.47%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 39.54%, mean hops 1.74, peer-link closes 4810"
+    }
+  ],
+  "096": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,051 (-0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 522,157 = mac_retry 35,439, mac_queue 286,806, hwmp 152,413, peer_link_filter 4,096; unexplained +43,403 (6.34%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 23.78%, mean hops 1.29, peer-link closes 12365"
+    }
+  ],
+  "097": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 686,362 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 516,645 = mac_retry 35,366, mac_queue 298,465, hwmp 134,245, peer_link_filter 4,314; unexplained +44,255 (6.45%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 24.73%, mean hops 1.31, peer-link closes 12681"
+    }
+  ],
+  "098": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 685,103 (-0.0%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 515,635 = mac_retry 35,232, mac_queue 298,699, hwmp 132,377, peer_link_filter 4,184; unexplained +45,143 (6.59%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 24.74%, mean hops 1.31, peer-link closes 12672"
+    }
+  ],
+  "099": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 685,400, measured 686,395 (+0.1%)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 0, measured 0 (tolerance \u00b15)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 522,804 = mac_retry 35,245, mac_queue 286,143, hwmp 155,354, peer_link_filter 4,105; unexplained +41,957 (6.11%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 23.83%, mean hops 1.28, peer-link closes 12069"
+    }
+  ]
+}

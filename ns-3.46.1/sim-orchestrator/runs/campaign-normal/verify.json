@@ -1,0 +1,3702 @@
+{
+  "000": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 112,599, measured 112,631 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.315 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 589, measured 535 (tolerance \u00b1102)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,795 = netem 535, mac_retry 1,244, hwmp 3,073; unexplained -57 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.74%, mean hops 2.23, peer-link closes 0"
+    }
+  ],
+  "001": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 185,655, measured 185,494 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.899 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 586, measured 569 (tolerance \u00b1102)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 11,351 = netem 569, mac_retry 11,148, hwmp 441; unexplained -807 (0.44%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.88%, mean hops 2.39, peer-link closes 0"
+    }
+  ],
+  "002": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 119,478, measured 119,651 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.916 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 438, measured 468 (tolerance \u00b189)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,221 = netem 468, mac_retry 553, mac_queue 16, hwmp 251; unexplained -67 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +3.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.98%, mean hops 2.11, peer-link closes 0"
+    }
+  ],
+  "003": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 159,772, measured 159,482 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.862 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 492, measured 497 (tolerance \u00b194)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 7,585 = netem 497, mac_retry 3,847, hwmp 3,389; unexplained -148 (0.09%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.24%, mean hops 1.90, peer-link closes 0"
+    }
+  ],
+  "004": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 141,980, measured 141,779 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.877 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 427, measured 404 (tolerance \u00b188)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 22,052 = netem 404, mac_retry 16,598, mac_queue 115, hwmp 5,813, peer_link_filter 1; unexplained -879 (0.62%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +10.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 84.45%, mean hops 2.83, peer-link closes 2"
+    }
+  ],
+  "005": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 175,193, measured 174,914 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.940 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 725, measured 708 (tolerance \u00b1113)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 8,006 = netem 708, mac_retry 977, hwmp 6,352; unexplained -31 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.42%, mean hops 1.68, peer-link closes 0"
+    }
+  ],
+  "006": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 189,979, measured 189,886 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.822 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,273, measured 1,303 (tolerance \u00b1148)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 32,858 = netem 1,303, mac_retry 32,871, mac_queue 70, hwmp 530; unexplained -1,916 (1.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +18.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 82.70%, mean hops 3.31, peer-link closes 4"
+    }
+  ],
+  "007": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 92,107, measured 92,112 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.876 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 256, measured 281 (tolerance \u00b169)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,412 = netem 281, mac_retry 658, hwmp 507; unexplained -34 (0.04%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.47%, mean hops 3.12, peer-link closes 0"
+    }
+  ],
+  "008": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 237,603, measured 237,389 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.853 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,469, measured 1,481 (tolerance \u00b1158)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 26,735 = netem 1,481, mac_retry 25,993, mac_queue 706, hwmp 389, peer_link_filter 4; unexplained -1,838 (0.77%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +36.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 88.74%, mean hops 3.73, peer-link closes 16"
+    }
+  ],
+  "009": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 334,777, measured 334,722 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.444 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 697, measured 632 (tolerance \u00b1111)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 118,290 = netem 632, mac_retry 60,773, mac_queue 32,079, hwmp 23,632, peer_link_filter 98; unexplained +1,076 (0.32%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +697.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 64.66%, mean hops 2.13, peer-link closes 1551"
+    }
+  ],
+  "010": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 327,609, measured 327,669 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.807 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,100, measured 1,127 (tolerance \u00b1138)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 248,739 = netem 1,127, mac_retry 92,478, mac_queue 123,455, hwmp 10,221, peer_link_filter 1,568; unexplained +19,890 (6.07%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1717.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 24.09%, mean hops 2.69, peer-link closes 5103"
+    }
+  ],
+  "011": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 102,048, measured 102,129 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.921 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 199, measured 183 (tolerance \u00b161)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,103 = netem 183, mac_retry 949, hwmp 32; unexplained -61 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.92%, mean hops 2.84, peer-link closes 0"
+    }
+  ],
+  "012": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 255,744, measured 255,652 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.845 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,250, measured 1,255 (tolerance \u00b1146)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 126,956 = netem 1,255, mac_retry 70,286, mac_queue 30,554, hwmp 21,567, peer_link_filter 90; unexplained +3,204 (1.25%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1479.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 50.34%, mean hops 2.06, peer-link closes 1161"
+    }
+  ],
+  "013": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 120,765, measured 120,895 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.915 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 230, measured 201 (tolerance \u00b166)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,506 = netem 201, mac_retry 1,325, mac_queue 6, hwmp 32; unexplained -58 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +3.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.75%, mean hops 2.17, peer-link closes 0"
+    }
+  ],
+  "014": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 333,997, measured 334,030 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.568 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 411, measured 432 (tolerance \u00b186)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 293,756 = netem 432, mac_retry 74,056, mac_queue 160,071, hwmp 27,108, peer_link_filter 3,492; unexplained +28,597 (8.56%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1593.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 12.06%, mean hops 2.49, peer-link closes 7831"
+    }
+  ],
+  "015": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 236,914, measured 236,721 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.789 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 568, measured 532 (tolerance \u00b1100)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 47,877 = netem 532, mac_retry 37,904, mac_queue 801, hwmp 9,522, peer_link_filter 2; unexplained -884 (0.37%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +49.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 79.77%, mean hops 2.08, peer-link closes 32"
+    }
+  ],
+  "016": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 206,138, measured 206,088 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.883 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,154, measured 1,193 (tolerance \u00b1141)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 105,082 = netem 1,193, mac_retry 58,937, mac_queue 36,759, hwmp 1,903, peer_link_filter 84; unexplained +6,206 (3.01%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +946.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 49.01%, mean hops 2.13, peer-link closes 1162"
+    }
+  ],
+  "017": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 251,936, measured 251,593 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.877 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,782, measured 1,785 (tolerance \u00b1174)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 32,001 = netem 1,785, mac_retry 31,291, hwmp 457; unexplained -1,532 (0.61%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +16.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 87.28%, mean hops 2.25, peer-link closes 0"
+    }
+  ],
+  "018": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 47,754, measured 47,805 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.937 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 124, measured 153 (tolerance \u00b150)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 902 = netem 153, mac_retry 67, hwmp 676; unexplained +6 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation -0.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.11%, mean hops 2.02, peer-link closes 0"
+    }
+  ],
+  "019": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 150,122, measured 150,011 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.938 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 481, measured 485 (tolerance \u00b193)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 18,293 = netem 485, mac_retry 13,573, mac_queue 127, hwmp 4,484, peer_link_filter 1; unexplained -377 (0.25%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 87.81%, mean hops 1.98, peer-link closes 8"
+    }
+  ],
+  "020": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 114,239, measured 114,360 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.898 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 128, measured 136 (tolerance \u00b150)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 13,049 = netem 136, mac_retry 13,491, mac_queue 42, hwmp 34; unexplained -654 (0.57%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +20.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 88.59%, mean hops 4.20, peer-link closes 2"
+    }
+  ],
+  "021": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 223,876, measured 224,145 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.915 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 860, measured 895 (tolerance \u00b1122)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 77,956 = netem 895, mac_retry 64,453, mac_queue 10,264, hwmp 3,185, peer_link_filter 18; unexplained -859 (0.38%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +798.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 65.22%, mean hops 2.19, peer-link closes 310"
+    }
+  ],
+  "022": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 126,436, measured 126,433 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.825 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 410, measured 383 (tolerance \u00b186)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 15,036 = netem 383, mac_retry 15,200, mac_queue 69, hwmp 49; unexplained -665 (0.53%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +15.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 88.11%, mean hops 3.07, peer-link closes 10"
+    }
+  ],
+  "023": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 136,811, measured 136,745 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.956 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 248, measured 228 (tolerance \u00b168)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 24,758 = netem 228, mac_retry 25,602, mac_queue 77, hwmp 203; unexplained -1,352 (0.99%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +36.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 81.89%, mean hops 3.66, peer-link closes 0"
+    }
+  ],
+  "024": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 128,728, measured 128,759 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.958 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 725, measured 745 (tolerance \u00b1113)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,380 = netem 745, mac_retry 2,473, hwmp 1,277; unexplained -115 (0.09%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.60%, mean hops 2.09, peer-link closes 30"
+    }
+  ],
+  "025": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 377,029, measured 377,107 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.473 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,118, measured 1,126 (tolerance \u00b1139)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 234,674 = netem 1,126, mac_retry 66,206, mac_queue 91,561, hwmp 64,661, peer_link_filter 686; unexplained +10,434 (2.77%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1308.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 37.77%, mean hops 1.60, peer-link closes 4084"
+    }
+  ],
+  "026": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 189,759, measured 189,714 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.810 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 187, measured 189 (tolerance \u00b160)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 105,842 = netem 189, mac_retry 65,182, mac_queue 34,144, hwmp 2,259, peer_link_filter 161; unexplained +3,907 (2.06%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1829.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 44.21%, mean hops 2.30, peer-link closes 2115"
+    }
+  ],
+  "027": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 284,442, measured 284,128 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.750 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,153, measured 1,137 (tolerance \u00b1141)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 63,773 = netem 1,137, mac_retry 59,879, mac_queue 1,149, hwmp 4,144, peer_link_filter 1; unexplained -2,537 (0.89%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +120.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 77.55%, mean hops 2.07, peer-link closes 42"
+    }
+  ],
+  "028": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 122,312, measured 121,910 (-0.3%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.820 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 881, measured 890 (tolerance \u00b1124)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,403 = netem 890, mac_retry 1,776, hwmp 789; unexplained -52 (0.04%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.21%, mean hops 2.08, peer-link closes 0"
+    }
+  ],
+  "029": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 223,199, measured 223,146 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.278 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 400, measured 407 (tolerance \u00b185)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 72,284 = netem 407, mac_retry 60,692, mac_queue 10,204, hwmp 4,082, peer_link_filter 44; unexplained -3,145 (1.41%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +745.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 67.61%, mean hops 2.25, peer-link closes 1030"
+    }
+  ],
+  "030": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 162,231, measured 161,683 (-0.3%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.775 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 171, measured 198 (tolerance \u00b157)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 20,677 = netem 198, mac_retry 20,151, mac_queue 807, hwmp 115, peer_link_filter 3; unexplained -597 (0.37%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +109.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 87.21%, mean hops 2.52, peer-link closes 54"
+    }
+  ],
+  "031": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 105,515, measured 105,581 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.919 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 559, measured 539 (tolerance \u00b1100)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 5,546 = netem 539, mac_retry 5,302, hwmp 66; unexplained -361 (0.34%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +4.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.75%, mean hops 3.56, peer-link closes 0"
+    }
+  ],
+  "032": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 177,904, measured 177,904 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.969 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 303, measured 322 (tolerance \u00b175)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 73,388 = netem 322, mac_retry 62,857, mac_queue 9,682, hwmp 1,227, peer_link_filter 37; unexplained -737 (0.41%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +789.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 58.75%, mean hops 2.98, peer-link closes 618"
+    }
+  ],
+  "033": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 289,159, measured 289,226 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.870 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,892, measured 1,880 (tolerance \u00b1179)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 224,033 = netem 1,880, mac_retry 78,406, mac_queue 110,876, hwmp 10,956, peer_link_filter 1,519; unexplained +20,396 (7.05%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1492.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 22.54%, mean hops 2.44, peer-link closes 5068"
+    }
+  ],
+  "034": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 203,838, measured 203,882 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.881 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 511, measured 520 (tolerance \u00b195)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 14,476 = netem 520, mac_retry 14,137, mac_queue 5, hwmp 662, peer_link_filter 1; unexplained -849 (0.42%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +10.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.90%, mean hops 2.31, peer-link closes 6"
+    }
+  ],
+  "035": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 173,000, measured 172,738 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.928 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 223, measured 211 (tolerance \u00b165)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 81,930 = netem 211, mac_retry 66,713, mac_queue 12,830, hwmp 846, peer_link_filter 35; unexplained +1,295 (0.75%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1598.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 52.57%, mean hops 2.65, peer-link closes 498"
+    }
+  ],
+  "036": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 137,061, measured 136,937 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.864 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 345, measured 336 (tolerance \u00b179)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 7,440 = netem 336, mac_retry 7,519, mac_queue 41, hwmp 136; unexplained -592 (0.43%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +13.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.57%, mean hops 3.71, peer-link closes 2"
+    }
+  ],
+  "037": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 209,462, measured 209,368 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.602 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 865, measured 852 (tolerance \u00b1123)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 92,522 = netem 852, mac_retry 81,505, mac_queue 11,987, hwmp 941, peer_link_filter 47; unexplained -2,810 (1.34%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1109.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 55.81%, mean hops 3.98, peer-link closes 330"
+    }
+  ],
+  "038": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 100,009, measured 100,210 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.456 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 578, measured 595 (tolerance \u00b1101)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 6,168 = netem 595, mac_retry 725, hwmp 4,831; unexplained +17 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.84%, mean hops 2.41, peer-link closes 6"
+    }
+  ],
+  "039": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 97,481, measured 97,404 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "FAIL",
+      "detail": "Pearson r = 0.795 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 517, measured 522 (tolerance \u00b196)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,060 = netem 522, mac_retry 1,495, hwmp 78; unexplained -35 (0.04%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.89%, mean hops 2.23, peer-link closes 0"
+    }
+  ],
+  "040": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 154,448, measured 154,503 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.962 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,009, measured 1,026 (tolerance \u00b1132)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 6,440 = netem 1,026, mac_retry 5,644, hwmp 158; unexplained -388 (0.25%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +12.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.83%, mean hops 3.35, peer-link closes 0"
+    }
+  ],
+  "041": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 72,137, measured 72,004 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.907 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 195, measured 229 (tolerance \u00b161)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 944 = netem 229, mac_retry 33, hwmp 683; unexplained -1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.69%, mean hops 1.77, peer-link closes 6"
+    }
+  ],
+  "042": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 95,754, measured 95,594 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.952 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 393, measured 420 (tolerance \u00b184)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,301 = netem 420, mac_retry 33, hwmp 863; unexplained -15 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation -0.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.64%, mean hops 1.61, peer-link closes 0"
+    }
+  ],
+  "043": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 295,924, measured 295,983 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.568 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 763, measured 744 (tolerance \u00b1116)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 200,073 = netem 744, mac_retry 61,216, mac_queue 88,762, hwmp 34,425, peer_link_filter 682; unexplained +14,244 (4.81%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1398.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 32.40%, mean hops 1.74, peer-link closes 3719"
+    }
+  ],
+  "044": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 98,132, measured 98,370 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "PASS",
+      "detail": "Pearson r = 0.951 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 580, measured 645 (tolerance \u00b1101)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,340 = netem 645, mac_retry 207, hwmp 3,489; unexplained -1 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.59%, mean hops 1.63, peer-link closes 0"
+    }
+  ],
+  "045": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 241,690, measured 241,324 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.835 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 859, measured 843 (tolerance \u00b1122)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 74,790 = netem 843, mac_retry 60,832, mac_queue 13,864, hwmp 2,403, peer_link_filter 61; unexplained -3,213 (1.33%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +976.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.01%, mean hops 2.51, peer-link closes 332"
+    }
+  ],
+  "046": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 134,074, measured 134,319 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.899 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 459, measured 452 (tolerance \u00b191)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 16,580 = netem 452, mac_retry 15,668, mac_queue 145, hwmp 1,082, peer_link_filter 4; unexplained -771 (0.57%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +13.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 87.66%, mean hops 3.77, peer-link closes 4"
+    }
+  ],
+  "047": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 208,368, measured 208,662 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.797 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 676, measured 697 (tolerance \u00b1109)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 21,318 = netem 697, mac_retry 22,452, mac_queue 745, hwmp 335, peer_link_filter 6; unexplained -2,917 (1.40%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +17.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 89.78%, mean hops 2.80, peer-link closes 74"
+    }
+  ],
+  "048": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 107,791, measured 107,651 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.903 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 228, measured 229 (tolerance \u00b165)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,239 = netem 229, mac_retry 1,039, hwmp 29; unexplained -58 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.85%, mean hops 2.76, peer-link closes 0"
+    }
+  ],
+  "049": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 175,904, measured 175,894 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.847 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 550, measured 562 (tolerance \u00b199)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 17,313 = netem 562, mac_retry 16,599, mac_queue 139, hwmp 906; unexplained -893 (0.51%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 90.16%, mean hops 3.39, peer-link closes 4"
+    }
+  ],
+  "050": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 212,554, measured 212,544 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.954 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 543, measured 563 (tolerance \u00b198)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 49,298 = netem 563, mac_retry 48,736, mac_queue 1,447, hwmp 356, peer_link_filter 5; unexplained -1,809 (0.85%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +25.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 76.81%, mean hops 2.44, peer-link closes 50"
+    }
+  ],
+  "051": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 134,567, measured 134,379 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.854 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 739, measured 785 (tolerance \u00b1114)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,043 = netem 785, mac_retry 682, mac_queue 2, hwmp 626; unexplained -52 (0.04%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.48%, mean hops 2.03, peer-link closes 0"
+    }
+  ],
+  "052": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 260,903, measured 260,855 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.831 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 746, measured 749 (tolerance \u00b1114)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 79,124 = netem 749, mac_retry 74,449, mac_queue 8,864, hwmp 2,316, peer_link_filter 24; unexplained -7,278 (2.79%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +663.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.67%, mean hops 2.65, peer-link closes 180"
+    }
+  ],
+  "053": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 114,253, measured 114,252 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.628 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 638, measured 630 (tolerance \u00b1106)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 15,981 = netem 630, mac_retry 15,705, mac_queue 5, hwmp 38; unexplained -397 (0.35%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +13.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 86.01%, mean hops 3.08, peer-link closes 0"
+    }
+  ],
+  "054": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 245,659, measured 246,045 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.942 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 918, measured 889 (tolerance \u00b1126)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 42,720 = netem 889, mac_retry 43,835, mac_queue 3,285, hwmp 406, peer_link_filter 4; unexplained -5,699 (2.32%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +213.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 82.64%, mean hops 3.31, peer-link closes 190"
+    }
+  ],
+  "055": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 245,480, measured 245,555 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.902 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 592, measured 588 (tolerance \u00b1102)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 18,980 = netem 588, mac_retry 11,678, mac_queue 91, hwmp 7,651; unexplained -1,028 (0.42%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +6.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.27%, mean hops 2.08, peer-link closes 44"
+    }
+  ],
+  "056": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 316,578, measured 316,232 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.881 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,160, measured 1,175 (tolerance \u00b1141)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 205,532 = netem 1,175, mac_retry 92,698, mac_queue 90,404, hwmp 6,979, peer_link_filter 1,505; unexplained +12,771 (4.04%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1700.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 35.01%, mean hops 3.02, peer-link closes 4980"
+    }
+  ],
+  "057": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 73,591, measured 73,516 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.945 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 116, measured 99 (tolerance \u00b148)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,646 = netem 99, mac_retry 1,571, hwmp 17; unexplained -41 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.76%, mean hops 2.27, peer-link closes 14"
+    }
+  ],
+  "058": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 185,493, measured 185,225 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.823 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 988, measured 1,004 (tolerance \u00b1131)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 81,125 = netem 1,004, mac_retry 61,872, mac_queue 8,801, hwmp 9,388, peer_link_filter 31; unexplained +29 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +709.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 56.20%, mean hops 2.32, peer-link closes 411"
+    }
+  ],
+  "059": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 130,451, measured 130,186 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.960 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 599, measured 626 (tolerance \u00b1103)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 6,825 = netem 626, mac_retry 6,442, mac_queue 47, hwmp 27; unexplained -317 (0.24%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.76%, mean hops 3.07, peer-link closes 2"
+    }
+  ],
+  "060": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 149,602, measured 149,104 (-0.3%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.875 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 557, measured 532 (tolerance \u00b199)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 5,918 = netem 532, mac_retry 5,825, hwmp 79; unexplained -518 (0.35%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.03%, mean hops 3.74, peer-link closes 0"
+    }
+  ],
+  "061": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 174,156, measured 173,714 (-0.3%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.889 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 411, measured 447 (tolerance \u00b186)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 66,528 = netem 447, mac_retry 41,429, mac_queue 20,963, hwmp 1,433, peer_link_filter 91; unexplained +2,165 (1.25%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1648.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 61.70%, mean hops 3.12, peer-link closes 1019"
+    }
+  ],
+  "062": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 320,435, measured 320,808 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.785 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,387, measured 1,422 (tolerance \u00b1154)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 105,842 = netem 1,422, mac_retry 64,149, mac_queue 32,780, hwmp 8,579, peer_link_filter 162; unexplained -1,250 (0.39%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +697.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 67.01%, mean hops 2.34, peer-link closes 1790"
+    }
+  ],
+  "063": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 92,178, measured 92,038 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.955 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 373, measured 378 (tolerance \u00b182)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,355 = netem 378, mac_retry 2,046, hwmp 55; unexplained -124 (0.13%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +5.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.44%, mean hops 3.49, peer-link closes 0"
+    }
+  ],
+  "064": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 277,033, measured 276,714 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.828 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,002, measured 991 (tolerance \u00b1132)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 39,611 = netem 991, mac_retry 40,610, mac_queue 2,797, hwmp 406, peer_link_filter 7; unexplained -5,200 (1.88%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +140.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 85.69%, mean hops 3.00, peer-link closes 210"
+    }
+  ],
+  "065": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 72,892, measured 72,532 (-0.5%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.929 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 434, measured 435 (tolerance \u00b188)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,123 = netem 435, mac_retry 668, hwmp 54; unexplained -34 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.45%, mean hops 2.31, peer-link closes 0"
+    }
+  ],
+  "066": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 192,357, measured 191,951 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.875 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 410, measured 432 (tolerance \u00b186)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 102,139 = netem 432, mac_retry 66,128, mac_queue 28,861, hwmp 1,610, peer_link_filter 80; unexplained +5,028 (2.62%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1342.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 46.79%, mean hops 2.45, peer-link closes 1038"
+    }
+  ],
+  "067": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 197,272, measured 197,355 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.908 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 947, measured 934 (tolerance \u00b1128)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 106,901 = netem 934, mac_retry 61,054, mac_queue 35,946, hwmp 2,817, peer_link_filter 183; unexplained +5,967 (3.02%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1010.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 45.83%, mean hops 2.77, peer-link closes 1601"
+    }
+  ],
+  "068": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 64,962, measured 65,056 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.901 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 175, measured 187 (tolerance \u00b158)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 423 = netem 187, mac_retry 253, hwmp 13; unexplained -30 (0.05%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation -0.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.35%, mean hops 2.64, peer-link closes 0"
+    }
+  ],
+  "069": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 73,651, measured 73,670 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "PASS",
+      "detail": "Pearson r = 0.953 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 256, measured 263 (tolerance \u00b169)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 423 = netem 263, mac_retry 147, hwmp 26; unexplained -13 (0.02%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 99.43%, mean hops 2.51, peer-link closes 6"
+    }
+  ],
+  "070": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 162,857, measured 162,721 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.777 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 383, measured 370 (tolerance \u00b183)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 43,970 = netem 370, mac_retry 41,693, mac_queue 2,466, hwmp 242, peer_link_filter 3; unexplained -804 (0.49%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +139.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 72.98%, mean hops 2.81, peer-link closes 110"
+    }
+  ],
+  "071": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 150,890, measured 150,746 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.910 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 843, measured 867 (tolerance \u00b1121)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 9,750 = netem 867, mac_retry 3,935, hwmp 5,140; unexplained -192 (0.13%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +4.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 93.53%, mean hops 2.05, peer-link closes 2"
+    }
+  ],
+  "072": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 108,837, measured 108,450 (-0.4%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.618 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 665, measured 643 (tolerance \u00b1108)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 1,703 = netem 643, mac_retry 72, hwmp 980; unexplained +8 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +0.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.43%, mean hops 1.64, peer-link closes 0"
+    }
+  ],
+  "073": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 223,220, measured 222,693 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.959 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 790, measured 800 (tolerance \u00b1117)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 30,128 = netem 800, mac_retry 29,243, mac_queue 347, hwmp 842, peer_link_filter 4; unexplained -1,108 (0.50%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +13.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 86.47%, mean hops 2.07, peer-link closes 10"
+    }
+  ],
+  "074": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 311,887, measured 311,582 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.411 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 972, measured 963 (tolerance \u00b1130)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 154,291 = netem 963, mac_retry 76,070, mac_queue 43,913, hwmp 28,997, peer_link_filter 117; unexplained +4,231 (1.36%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1263.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 50.48%, mean hops 1.88, peer-link closes 1618"
+    }
+  ],
+  "075": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 152,397, measured 152,425 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.909 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 763, measured 741 (tolerance \u00b1115)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 31,320 = netem 741, mac_retry 28,156, mac_queue 2,553, hwmp 213, peer_link_filter 4; unexplained -347 (0.23%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +58.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 79.45%, mean hops 2.55, peer-link closes 159"
+    }
+  ],
+  "076": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 189,633, measured 189,883 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.873 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 490, measured 510 (tolerance \u00b194)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 23,858 = netem 510, mac_retry 24,741, mac_queue 113, hwmp 332, peer_link_filter 5; unexplained -1,843 (0.97%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +24.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 87.44%, mean hops 3.52, peer-link closes 16"
+    }
+  ],
+  "077": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 190,748, measured 190,842 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.800 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 239, measured 245 (tolerance \u00b167)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 30,689 = netem 245, mac_retry 25,153, mac_queue 326, hwmp 5,454; unexplained -489 (0.26%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +11.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 83.92%, mean hops 1.85, peer-link closes 34"
+    }
+  ],
+  "078": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 54,338, measured 54,145 (-0.4%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "PASS",
+      "detail": "Pearson r = 0.967 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 273, measured 256 (tolerance \u00b171)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 589 = netem 256, mac_retry 328, hwmp 25, peer_link_filter 1; unexplained -21 (0.04%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation -1.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.91%, mean hops 3.72, peer-link closes 8"
+    }
+  ],
+  "079": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 90,837, measured 90,745 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.758 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 375, measured 395 (tolerance \u00b182)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,977 = netem 395, mac_retry 4,765, hwmp 27; unexplained -210 (0.23%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +8.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.52%, mean hops 2.67, peer-link closes 14"
+    }
+  ],
+  "080": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 282,531, measured 282,219 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.784 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,780, measured 1,847 (tolerance \u00b1174)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 85,032 = netem 1,847, mac_retry 67,902, mac_queue 16,621, hwmp 1,928, peer_link_filter 107; unexplained -3,373 (1.20%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +750.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.87%, mean hops 2.84, peer-link closes 1159"
+    }
+  ],
+  "081": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 117,053, measured 117,110 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.875 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 952, measured 976 (tolerance \u00b1128)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,745 = netem 976, mac_retry 1,796, hwmp 194; unexplained -221 (0.19%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +6.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.66%, mean hops 2.91, peer-link closes 0"
+    }
+  ],
+  "082": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 153,402, measured 153,329 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.827 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 514, measured 486 (tolerance \u00b196)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 30,357 = netem 486, mac_retry 29,674, mac_queue 1,194, hwmp 118, peer_link_filter 3; unexplained -1,118 (0.73%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +26.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 80.20%, mean hops 3.24, peer-link closes 77"
+    }
+  ],
+  "083": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 267,470, measured 267,519 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.786 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 912, measured 858 (tolerance \u00b1126)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 80,344 = netem 858, mac_retry 73,024, mac_queue 6,372, hwmp 2,977, peer_link_filter 14; unexplained -2,901 (1.08%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +587.0% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.97%, mean hops 2.63, peer-link closes 166"
+    }
+  ],
+  "084": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 112,521, measured 112,375 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.964 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 491, measured 492 (tolerance \u00b194)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,037 = netem 492, mac_retry 493, hwmp 2,037; unexplained +15 (0.01%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.30%, mean hops 1.72, peer-link closes 0"
+    }
+  ],
+  "085": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 180,248, measured 180,310 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.887 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 713, measured 714 (tolerance \u00b1112)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 54,828 = netem 714, mac_retry 53,972, mac_queue 3,011, hwmp 187, peer_link_filter 6; unexplained -3,062 (1.70%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +259.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 69.59%, mean hops 3.00, peer-link closes 446"
+    }
+  ],
+  "086": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 192,624, measured 192,555 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.776 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,070, measured 1,063 (tolerance \u00b1136)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 35,337 = netem 1,063, mac_retry 35,755, mac_queue 123, hwmp 162, peer_link_filter 2; unexplained -1,768 (0.92%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +22.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 81.65%, mean hops 2.85, peer-link closes 2"
+    }
+  ],
+  "087": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 189,642, measured 189,433 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.726 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 480, measured 496 (tolerance \u00b193)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 67,897 = netem 496, mac_retry 65,951, mac_queue 3,438, hwmp 436, peer_link_filter 10; unexplained -2,434 (1.28%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +460.1% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 64.16%, mean hops 2.93, peer-link closes 120"
+    }
+  ],
+  "088": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 92,912, measured 92,871 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "PASS",
+      "detail": "Pearson r = 0.963 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 505, measured 499 (tolerance \u00b195)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,749 = netem 499, mac_retry 4,507, mac_queue 6, hwmp 23, peer_link_filter 1; unexplained -287 (0.31%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +6.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.89%, mean hops 3.03, peer-link closes 4"
+    }
+  ],
+  "089": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 122,419, measured 122,280 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.921 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 670, measured 666 (tolerance \u00b1109)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 3,683 = netem 666, mac_retry 2,766, mac_queue 123, hwmp 272; unexplained -144 (0.12%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.6% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 96.99%, mean hops 2.48, peer-link closes 10"
+    }
+  ],
+  "090": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 107,896, measured 108,074 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "WARN",
+      "detail": "Pearson r = 0.903 over 298 s"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 406, measured 390 (tolerance \u00b186)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 4,599 = netem 390, mac_retry 1,406, hwmp 2,803; unexplained +0 (0.00%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +1.9% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 95.74%, mean hops 1.79, peer-link closes 0"
+    }
+  ],
+  "091": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 192,819, measured 192,763 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.846 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 633, measured 613 (tolerance \u00b1106)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 38,338 = netem 613, mac_retry 31,754, mac_queue 378, hwmp 7,214, peer_link_filter 2; unexplained -1,623 (0.84%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +16.8% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 80.11%, mean hops 2.63, peer-link closes 10"
+    }
+  ],
+  "092": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 97,632, measured 97,239 (-0.4%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.918 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 245, measured 275 (tolerance \u00b168)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,879 = netem 275, mac_retry 1,273, hwmp 1,408; unexplained -77 (0.08%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.04%, mean hops 1.91, peer-link closes 0"
+    }
+  ],
+  "093": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 168,846, measured 168,712 (-0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.904 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 919, measured 917 (tolerance \u00b1126)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 31,079 = netem 917, mac_retry 30,410, mac_queue 326, hwmp 47, peer_link_filter 1; unexplained -622 (0.37%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +17.7% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 81.58%, mean hops 2.68, peer-link closes 14"
+    }
+  ],
+  "094": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 143,408, measured 143,121 (-0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.697 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 518, measured 496 (tolerance \u00b196)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 16,177 = netem 496, mac_retry 16,381, mac_queue 84, hwmp 32; unexplained -816 (0.57%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +17.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 88.70%, mean hops 2.53, peer-link closes 24"
+    }
+  ],
+  "095": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 150,328, measured 150,597 (+0.2%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.788 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 1,059, measured 1,091 (tolerance \u00b1135)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 11,510 = netem 1,091, mac_retry 10,741, mac_queue 208, hwmp 51; unexplained -581 (0.39%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +8.4% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 92.36%, mean hops 2.59, peer-link closes 36"
+    }
+  ],
+  "096": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 232,311, measured 232,407 (+0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.835 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 501, measured 508 (tolerance \u00b195)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "WARN",
+      "detail": "lost 144,806 = netem 508, mac_retry 80,835, mac_queue 51,342, hwmp 2,483, peer_link_filter 228; unexplained +9,410 (4.05%); HWMP counters include non-data frames; MAC queue saturated: the residual is data evicted for management frames (untraced in ns-3)"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2148.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 37.69%, mean hops 2.53, peer-link closes 1762"
+    }
+  ],
+  "097": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 169,183, measured 169,177 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.937 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 651, measured 634 (tolerance \u00b1107)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,595 = netem 634, mac_retry 2,021, hwmp 45; unexplained -105 (0.06%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +2.3% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 98.47%, mean hops 2.49, peer-link closes 0"
+    }
+  ],
+  "098": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 86,240, measured 86,369 (+0.1%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.881 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 332, measured 300 (tolerance \u00b178)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 2,579 = netem 300, mac_retry 2,198, hwmp 436; unexplained -355 (0.41%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +7.5% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 97.01%, mean hops 3.42, peer-link closes 0"
+    }
+  ],
+  "099": [
+    {
+      "check": "generated packets vs model",
+      "status": "PASS",
+      "detail": "model 178,260, measured 178,248 (-0.0%)"
+    },
+    {
+      "check": "per-second load shape",
+      "status": "INFO",
+      "detail": "Pearson r = 0.930 over 298 s (load is flat: not graded)"
+    },
+    {
+      "check": "active STAs vs timeline",
+      "status": "PASS",
+      "detail": "298/298 seconds match exactly"
+    },
+    {
+      "check": "netem drops vs model",
+      "status": "PASS",
+      "detail": "model 576, measured 604 (tolerance \u00b1101)"
+    },
+    {
+      "check": "loss accounting",
+      "status": "PASS",
+      "detail": "lost 9,740 = netem 604, mac_retry 8,801, hwmp 572; unexplained -237 (0.13%); HWMP counters include non-data frames"
+    },
+    {
+      "check": "netem p95 latency vs model",
+      "status": "INFO",
+      "detail": "median deviation +3.2% over 297 s (mesh adds multi-hop delay on top of netem)"
+    },
+    {
+      "check": "summary",
+      "status": "INFO",
+      "detail": "PDR 94.54%, mean hops 1.92, peer-link closes 4"
+    }
+  ]
+}

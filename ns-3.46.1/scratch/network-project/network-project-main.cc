@@ -1,4 +1,7 @@
 #include "simulation-environment.h"
+#include "agent-orchestrator.h"
+#include "ns3/global-value.h"
+#include <csignal>
 #include "ns3/command-line.h"
 #include "ns3/config.h"
 #include "ns3/string.h"
@@ -27,6 +30,12 @@ int main(int argc, char* argv[]) {
     bool enableNakagamiFading = false;
     bool fixedStaRingPlacement = false;
     bool compactMetrics = false;
+    std::string timeline;
+    bool realtime = false;
+    std::string topology = "infra";
+    std::string meshLayout = "grid";
+    double meshSpacing = 50.0;
+    uint32_t meshClusterB = 0;
 
     CommandLine cmd(__FILE__);
     cmd.AddValue("nAps", "Number of Access Points", nAps);
@@ -49,11 +58,29 @@ int main(int argc, char* argv[]) {
     cmd.AddValue("enableNakagamiFading", "Enable Nakagami fading for fixed placement", enableNakagamiFading);
     cmd.AddValue("fixedStaRingPlacement", "Place all STAs evenly on a fixed-distance ring around one AP", fixedStaRingPlacement);
     cmd.AddValue("compactMetrics", "Log per-second aggregate QoS metrics instead of one row per packet", compactMetrics);
+    cmd.AddValue("timeline", "Timeline file with orchestrator commands (enables timeline mode)", timeline);
+    cmd.AddValue("realtime", "Run against the wall clock (for live control via appended timeline lines)", realtime);
+    cmd.AddValue("topology", "infra (Gateway-AP-STA, 802.11ax) or mesh (802.11s/HWMP, 802.11a, nAps gateways)", topology);
+    cmd.AddValue("meshLayout", "Mesh node placement: grid or random (uniform in roomSize)", meshLayout);
+    cmd.AddValue("meshClusterB", "Routers in cluster B (meshLayout=corridor); the last router is the bridge", meshClusterB);
+    cmd.AddValue("meshSpacing", "Distance between grid neighbours in metres (mesh grid layout)", meshSpacing);
     cmd.Parse(argc, argv);
+    NS_ABORT_MSG_IF(topology != "infra" && topology != "mesh", "--topology must be infra or mesh");
+    NS_ABORT_MSG_IF(meshLayout != "grid" && meshLayout != "random" && meshLayout != "corridor",
+                    "--meshLayout must be grid, random or corridor");
+
+    auto onSignal = [](int) { g_stopRequested = 1; };
+    std::signal(SIGINT, onSignal);
+    std::signal(SIGTERM, onSignal);
+    if (realtime) {
+        GlobalValue::Bind("SimulatorImplementationType", StringValue("ns3::RealtimeSimulatorImpl"));
+    }
 
     Config::SetDefault("ns3::WifiMacQueue::MaxSize", StringValue(std::to_string(queueSize) + "p"));
 
     SimulationEnvironment env;
+    env.SetTimelinePath(timeline);
+    env.SetTopology(topology, meshLayout, meshSpacing, meshClusterB);
     env.Run(nAps, nStas, queueSize, pktInterval, errorRate, visual, duration, roomSize, wifiRate, pSize, scenario, targetSta1, targetSta2, triggerTime, fixedStaDistance, fixedStaPlacement, fixedTxPowerDbm, enableNakagamiFading, fixedStaRingPlacement, compactMetrics);
 
     return 0;

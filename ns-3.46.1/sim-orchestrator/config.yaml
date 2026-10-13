@@ -1,0 +1,80 @@
+# Example scenario: 2 cells, pool of 20 STAs, churn + mixed traffic + network faults.
+# Any value can be overridden from the CLI: --set churn.rate_per_s=2 --set sim.duration=120
+
+sim:
+  binary: ../build/scratch/network-project/ns3.46.1-network-project-main-optimized
+  duration: 60                 # simulated seconds
+  args:                        # passed as --key=value to network-project-main
+    nAps: 2
+    nStas: 20                  # node pool = max STAs that can be active at once
+    roomSize: 60               # metres; keep small or STAs end up out of range
+    pktInterval: 2400          # default interval (us) until a traffic profile is applied
+    pSize: 1500
+    compactMetrics: 1          # per-second counters; needed for the summary table
+    scenario: normal           # legacy Director runbook; use `script` for mode switches
+    # realtime: 1              # wall-clock pace, use with `orchestrator.py ctl`
+
+run:
+  name: demo
+  output_dir: runs
+  replicas: 3                  # independent instances, seed = base_seed + index
+  max_parallel: 3
+  base_seed: 1
+  max_restarts: 1              # relaunch an instance that crashed
+  grace_period_s: 10           # SIGTERM -> SIGKILL delay on shutdown
+
+churn:                         # node failures / joins (Poisson process)
+  initial_active: 12           # STAs up at t=0, the rest of the pool starts down
+  min_active: 6
+  max_active: 20
+  rate_per_s: 0.5              # churn events per second
+  fail_probability: 0.5        # event takes a node down (else brings one up)
+  restart_probability: 0.3     # a failed node comes back by itself...
+  restart_downtime_s: [1, 5]   # ...after this long
+  ap_failures:
+    rate_per_s: 0.02           # AP radio off -> its whole cell re-associates
+    downtime_s: [2, 6]
+  scale:                       # deterministic scaling steps on top of churn
+    - {at: 30, active: 20}
+    - {at: 50, active: 8}
+
+traffic:
+  profiles:                    # dist: const | uniform | normal | exp (Poisson arrivals)
+    sensor:
+      weight: 3
+      size: {dist: uniform, min: 64, max: 256}                         # bytes
+      interval_us: {dist: exp, mean: 20000, max: 200000}
+    telemetry:
+      weight: 2
+      size: {dist: normal, mean: 512, std: 128, min: 64, max: 1024}
+      interval_us: {dist: uniform, min: 5000, max: 15000}
+    video:
+      weight: 1
+      size: {dist: normal, mean: 1200, std: 150, min: 500, max: 1500}
+      interval_us: {dist: const, value: 2400}
+  bursts:                      # impulse bursts: N packets back to back
+    rate_per_s: 0.2
+    nodes: [1, 4]              # STAs bursting together
+    packets: [100, 400]
+    gap_us: 200
+  profile_swap_rate_per_s: 0.05  # hot swap: a random STA switches profile
+
+network:
+  rules:                       # target: sta:3 | sta:0-9 | sta:* | cell:1 | all
+    - {at: 15, until: 25, target: "cell:1", delay_ms: 30, jitter_ms: 10, loss: 0.05}
+    - {at: 40, until: 45, target: "cell:0", isolate: true}
+  random_impairments:          # short episodes on random single STAs
+    rate_per_s: 0.05
+    duration_s: [2, 8]
+    delay_ms: [5, 80]
+    jitter_ms: [0, 10]
+    loss: [0.0, 0.2]
+
+script:                        # raw timeline commands; @profile expands to its distributions
+  - "0 AGENT chaos off"         # module hot-swap: agents are on by default
+  - "20 AGENT chaos on"
+  - "20 MODE controlled"       # chaos agent overrides every STA's interval in this mode...
+  - "35 MODE normal"
+  - "35 TRAFFIC sta:0-3 @video"  # ...so re-apply profiles afterwards
+  - "35 TRAFFIC sta:4-19 @sensor"
+  - "55 APP cell:1 off"        # service switch-off for one cell
