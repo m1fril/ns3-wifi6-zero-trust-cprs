@@ -171,7 +171,11 @@ python3 campaign.py density --tag linux --parallel 8 \
 python3 analyze_campaign.py runs/campaign-*                    # results.csv на серию
 python3 verify.py runs/campaign-normal                          # самопроверка (любой серии)
 python3 warehouse.py                                            # пример склада 100 × 100 м -> runs/warehouse/results.csv
+python3 paper/figs.py --check                                   # рисунки статьи -> paper/figures/, числа из текста
 ```
+
+`paper/figs.py --check` печатает и подгонку модели времени эфира на пакет `T_хоп(L) = T0 + 8L/R_еф`
+(T0 ≈ 184 мкс, R_еф ≈ 9,6 Мбит/с, R² = 0,98), по которой построены уравнения (3)–(5) статьи.
 
 Таймеры peer-link: по умолчанию ns-3 использует 40 TU (≈ 41 мс) без случайной составляющей; при ≥ 27 узлах в
 зоне связи рукопожатие Open/Confirm не успевает и плотная сеть коллапсирует. Значения 100 мс и 3 повтора взяты
